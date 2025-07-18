@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of Shail K Patel – Machine Learning Intern. Explore AI projects, research, and skills. Available for hire in ML and data science roles."
+    />
+    <meta name="author" content="Shail K Patel" />
+    <meta
+      name="keywords"
+      content="Shail K Patel, Machine Learning, AI, Data Science, Portfolio, Projects, Research, Intern, Hire"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Social Sharing (Open Graph for LinkedIn, GitHub previews) -->
+    <meta
+      property="og:title"
+      content="Shail K Patel | Machine Learning Intern & Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Machine Learning intern passionate about solving real-world problems with AI. Explore my projects, research, and skills. Let's build the future together."
+    />
+    <meta property="og:url" content="https://shailpatel.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://shailpatel.github.io/assets/images/picofme.png"
+    />
+    <meta property="og:image:alt" content="Photo of Shail K Patel" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card for Twitter Sharing -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Shail K Patel | Machine Learning Intern & Portfolio"
+    />
+    <meta
+      name="twitter:description"
+      content="Machine Learning intern passionate about solving real-world problems with AI. Explore my projects, research, and skills."
+    />
+    <meta
+      name="twitter:image"
+      content="https://shailpatel.github.io/assets/images/picofme.png"
+    />
+    <meta name="twitter:image:alt" content="Photo of Shail K Patel" />
+
+    <!-- Identity Links -->
+    <link rel="me" href="https://www.linkedin.com/in/shail-k-patel/" />
+    <link rel="me" href="https://github.com/ShailKPatel" />
+    <link rel="me" href="https://github.com/shail-k-patel" />
+    <link rel="me" href="https://www.youtube.com/@Shail_K_Patel" />
+
+    <title>Shail K Patel</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Favicon + Performance Preload -->
+    <link rel="icon" type="image/png" href="assets/images/picofme.png" />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/images/picofme.png"
+      type="image/png"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/images/profile-pic.png"
+      type="image/png"
+    />
+  </head>
+
+  <body class="bg-white text-black overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="text-2xl font-bold text-black hover:scale-105 transition-transform duration-300 cursor-pointer">
+            Shail K Patel
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a href="#hero" class="nav-link active" data-section="hero">Home</a>
+            <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+            <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+            <a href="#education" class="nav-link" data-section="education">Education</a>
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+          </div>
+          <div class="flex items-center gap-4">
+            <!-- Theme Toggle Switch -->
+            <div class="theme-toggle-container">
+              <input type="checkbox" id="theme-toggle" class="theme-toggle-input">
+              <label for="theme-toggle" class="theme-toggle-label">
+                <span class="theme-toggle-slider">
+                  <span class="theme-icon sun-icon">☀</span>
+                  <span class="theme-icon moon-icon">🌙</span>
+                </span>
+              </label>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="text-black hover:text-gray-600">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+        <div class="px-6 py-4 space-y-4">
+          <a href="#hero" class="block nav-link">Home</a>
+          <a href="#projects" class="block nav-link">Projects</a>
+          <a href="#skills" class="block nav-link">Skills</a>
+          <a href="#education" class="block nav-link">Education</a>
+          <a href="#contact" class="block nav-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+      <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+      </div>
+      
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div class="text-center md:text-left space-y-8">
+          <div class="hero-text-container">
+            <h1 class="hero-title">
+              <span class="name-first block text-6xl md:text-8xl mb-4">Shail K</span>
+              <span class="name-last block text-6xl md:text-8xl">Patel</span>
+            </h1>
+          </div>
+          
+          <p class="hero-subtitle text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl">
+            I help <span class="highlight">innovators</span> solve real-world problems using 
+            <span class="highlight">Machine Learning</span>. Let's collaborate and build something 
+            <span class="highlight italic">impactful</span>.
+          </p>
+          
+          <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+            <a href="#contact" class="btn-3d btn-primary">
+              <span>Hire Me</span>
+            </a>
+            <a href="https://www.linkedin.com/in/shail-k-patel/" target="_blank" class="btn-3d btn-secondary">
+              <span>LinkedIn</span>
+            </a>
+            <a href="http://github.com/ShailKPatel" target="_blank" class="btn-3d btn-secondary">
+              <span>GitHub</span>
+            </a>
+            <a href="assets/pdf/Shail Resume.pdf" target="_blank" class="btn-3d btn-secondary">
+              <span>Resume</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="flex justify-center">
+          <div class="profile-container">
+            <div class="profile-image-wrapper">
+              <img
+                src="assets/images/profile-pic.png"
+                alt="Shail K Patel Profile"
+                class="profile-image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="section-title">My Projects</h2>
+          <p class="text-xl text-gray-600 mt-4">Innovative solutions powered by Machine Learning</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">PredictGrad</h3>
+              <span class="project-date">Jul 2025</span>
+            </div>
+            <div class="project-content">
+              <ul class="project-features">
+                <li>Built a full ML pipeline to predict Semester 3 marks and detect academic risk</li>
+                <li>Regression: Voting Regressor (Ridge + Lasso + ElasticNet)</li>
+                <li>Classification: Stacking (CatBoost, LGBM, ExtraTrees)</li>
+                <li>Deployed as interactive Streamlit app with XAI explanations</li>
+              </ul>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">SHAP</span>
+                <span class="tech-tag">Streamlit</span>
+              </div>
+              <div class="project-demo">
+                <iframe
+                  src="https://predictgrad.streamlit.app/?embed=true"
+                  class="demo-iframe"
+                  title="PredictGrad Demo"
+                ></iframe>
+              </div>
+              <a href="https://predictgrad.streamlit.app/" target="_blank" class="project-link">
+                <span>Try It Live →</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Beyond The Marks</h3>
+              <span class="project-date">Mar 2025</span>
+            </div>
+            <div class="project-content">
+              <ul class="project-features">
+                <li>ML pipeline with explainable AI to analyze student performance</li>
+                <li>Detects grading bias and assesses influence of sensitive attributes</li>
+                <li>Quantified teacher effectiveness with performance indicators</li>
+                <li>Statistical analysis of attendance, grades, and student features</li>
+              </ul>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">SHAP</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">Matplotlib</span>
+              </div>
+              <div class="project-demo">
+                <iframe
+                  src="https://beyondthemarks.streamlit.app/?embed=true"
+                  class="demo-iframe"
+                  title="Beyond The Marks Demo"
+                ></iframe>
+              </div>
+              <a href="https://beyondthemarks.streamlit.app/" target="_blank" class="project-link">
+                <span>Try It Live →</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Attend2Achieve</h3>
+              <span class="project-date">Mar 2025</span>
+            </div>
+            <div class="project-content">
+              <ul class="project-features">
+                <li>Analyzed subject attendance and marks correlations</li>
+                <li>Performance pattern explanation with statistical measures</li>
+                <li>Data visualization with plots and heatmaps</li>
+                <li>Academic insights dashboard with improvement suggestions</li>
+              </ul>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">Seaborn</span>
+                <span class="tech-tag">Streamlit</span>
+              </div>
+              <div class="project-demo">
+                <iframe
+                  src="https://attend2achieve.streamlit.app/?embed=true"
+                  class="demo-iframe"
+                  title="Attend2Achieve Demo"
+                ></iframe>
+              </div>
+              <a href="https://attend2achieve.streamlit.app/" target="_blank" class="project-link">
+                <span>Try It Live →</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">The Profit Oracle</h3>
+              <span class="project-date">Feb 2025</span>
+            </div>
+            <div class="project-content">
+              <ul class="project-features">
+                <li>Financial analysis and revenue forecasting tool</li>
+                <li>Automated insights on returns and customer behavior</li>
+                <li>Location-based analysis with ML algorithms</li>
+                <li>Cost vs price comparison and profit analysis</li>
+              </ul>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">NumPy</span>
+              </div>
+              <div class="project-demo">
+                <iframe
+                  src="https://theprofitoracle.streamlit.app/?embed=true"
+                  class="demo-iframe"
+                  title="The Profit Oracle Demo"
+                ></iframe>
+              </div>
+              <a href="https://theprofitoracle.streamlit.app/" target="_blank" class="project-link">
+                <span>Try It Live →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="section-title">Skills & Expertise</h2>
+          <p class="text-xl text-gray-600 mt-4">Technologies I work with</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+          <!-- Skills will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="section-title">Education</h2>
+          <p class="text-xl text-gray-600 mt-4">Academic journey and learning path</p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <div class="education-card">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+              <div class="education-logo">
+                <img src="assets/images/logo/lj-logo.png" alt="College Logo" class="w-32 h-32 object-contain" />
+              </div>
+              <div class="flex-1 text-center md:text-left">
+                <h3 class="text-3xl font-bold mb-2">Bachelor of Engineering in AI & ML</h3>
+                <p class="text-xl text-gray-600 mb-4">2023 - 2027</p>
+                <div class="semester-selector">
+                  <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-6">
+                    <button class="semester-btn active" data-semester="1">Semester 1</button>
+                    <button class="semester-btn" data-semester="2">Semester 2</button>
+                    <button class="semester-btn" data-semester="3">Semester 3</button>
+                    <button class="semester-btn" data-semester="4">Semester 4</button>
+                    <button class="semester-btn disabled" disabled>Semester 5</button>
+                    <button class="semester-btn disabled" disabled>Semester 6</button>
+                    <button class="semester-btn disabled" disabled>Semester 7</button>
+                    <button class="semester-btn disabled" disabled>Semester 8</button>
+                  </div>
+                  <div class="semester-content">
+                    <div class="semester-skills active" data-semester="1">
+                      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">Software Engineering</span>
+                        <span class="skill-badge">Mathematics-1</span>
+                        <span class="skill-badge">Physics</span>
+                        <span class="skill-badge">IoT</span>
+                        <span class="skill-badge">Computer Hardware</span>
+                      </div>
+                    </div>
+                    <div class="semester-skills" data-semester="2">
+                      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <span class="skill-badge">Advanced Java</span>
+                        <span class="skill-badge">PostgreSQL</span>
+                        <span class="skill-badge">MySQL</span>
+                        <span class="skill-badge">Mathematics-2</span>
+                        <span class="skill-badge">Data Structures</span>
+                        <span class="skill-badge">Electronics</span>
+                      </div>
+                    </div>
+                    <div class="semester-skills" data-semester="3">
+                      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <span class="skill-badge">Web Development</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">Probability & Statistics</span>
+                      </div>
+                    </div>
+                    <div class="semester-skills" data-semester="4">
+                      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <span class="skill-badge">Theory of Computation</span>
+                        <span class="skill-badge">Computer Organization</span>
+                        <span class="skill-badge">Discrete Mathematics</span>
+                        <span class="skill-badge">MERN Stack</span>
+                        <span class="skill-badge">Supervised ML</span>
+                        <span class="skill-badge">Advanced Python</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="section-title">Let's Work Together</h2>
+          <p class="text-xl text-gray-600 mt-4">Ready to bring your ideas to life with Machine Learning</p>
+        </div>
+        
+        <div class="max-w-2xl mx-auto text-center">
+          <div class="contact-card">
+            <p class="text-lg text-gray-600 mb-8">
+              I'm always excited to work on innovative projects that make a real impact. 
+              Whether you need ML solutions, data analysis, or want to explore AI possibilities, 
+              let's connect and create something amazing together.
+            </p>
+            
+            <div class="flex flex-wrap gap-4 justify-center">
+              <a 
+                href="mailto:shailpatel.connect@gmail.com?subject=Hiring%20Inquiry:%20Machine%20Learning%20Role&body=Hi%20Shail,%20I%20came%20across%20your%20portfolio%20and%20am%20interested%20in%20discussing%20a%20potential%20opportunity.%20Can%20we%20schedule%20a%20call?"
+                class="btn-3d btn-primary"
+              >
+                <span>Send Email</span>
+              </a>
+              <a href="https://www.linkedin.com/in/shail-k-patel/" target="_blank" class="btn-3d btn-secondary">
+                <span>LinkedIn</span>
+              </a>
+              <a href="http://github.com/ShailKPatel" target="_blank" class="btn-3d btn-secondary">
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <p class="text-gray-400">
+          © 2025 Shail K Patel. Crafted with passion for innovation.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

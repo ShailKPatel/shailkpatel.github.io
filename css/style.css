@@ -245,7 +245,7 @@ body.dark-theme .nav-link.active {
     animation: fadeInUp 1.2s ease-out 0.6s forwards;
     background: linear-gradient(135deg, #000000 0%, #333333 50%, #000000 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* -webkit-text-fill-color: transparent; */
     background-clip: text;
     background-size: 200% 100%;
     animation: fadeInUp 1.2s ease-out 0.6s forwards, shimmer 3s ease-in-out infinite 2s;
@@ -380,7 +380,7 @@ body.dark-theme .shape {
 body.dark-theme .hero-title .name-last {
     background: linear-gradient(135deg, #ffffff 0%, #cccccc 50%, #ffffff 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* -webkit-text-fill-color: transparent; */
     background-clip: text;
     background-size: 200% 100%;
 }
@@ -980,81 +980,53 @@ body.dark-theme .skill-badge:hover {
         0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .profile-image-wrapper {
-        width: 300px;
-        height: 300px;
-    }
-    
-    .project-card {
-        padding: 1.5rem;
-    }
-    
-    .education-card {
-        padding: 2rem;
-    }
-    
-    .contact-card {
-        padding: 2rem;
-    }
-    
-    .demo-iframe {
-        height: 250px;
-    }
+/* Custom Text Selection */
+::selection {
+    background: #23272e;
+    color: #fff;
 }
-
-/* Smooth Scrolling Enhancement */
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
-    }
+::-moz-selection {
+    background: #23272e;
+    color: #fff;
 }
-
-/* Loading Animation */
-.fade-in {
-    animation: fadeIn 0.8s ease-in-out;
+body.dark-theme ::selection {
+    background: #e0e0e0;
+    color: #111;
 }
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+body.dark-theme ::-moz-selection {
+    background: #e0e0e0;
+    color: #111;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
+    width: 10px;
     background: #f1f1f1;
 }
-
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #000000 0%, #333333 100%);
-    border-radius: 4px;
+    background: linear-gradient(135deg, #23272e 0%, #444950 100%);
+    border-radius: 6px;
+    border: 2px solid #f1f1f1;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #333333 0%, #555555 100%);
+    background: linear-gradient(135deg, #444950 0%, #23272e 100%);
 }
-
-body.dark-theme ::-webkit-scrollbar-track {
-    background: #1a1a1a;
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
 }
-
+body.dark-theme ::-webkit-scrollbar {
+    background: #181a1b;
+}
 body.dark-theme ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+    background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%);
+    border: 2px solid #181a1b;
 }
-
 body.dark-theme ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #cccccc 0%, #aaaaaa 100%);
+    background: linear-gradient(135deg, #bdbdbd 0%, #e0e0e0 100%);
+}
+body.dark-theme ::-webkit-scrollbar-track {
+    background: #181a1b;
 }
 
 /* Fix for button and link interactions */

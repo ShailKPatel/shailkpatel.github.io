@@ -1,3 +1,40 @@
+# Portfolio Website
+
+This is my personal portfolio website, built using HTML, CSS, JavaScript, and Tailwind CSS. The site showcases my projects, skills, and experience as a developer.
+
+## Features
+
+- Responsive design using Tailwind CSS
+- Project showcase section
+- About me and contact information
+- Smooth navigation and interactive elements with JavaScript
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## Getting Started
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/your-portfolio.git
+   ```
+2. Open `index.html` in your browser to view the website.
+
+## Customization
+
+- Update the content in the HTML files to personalize your information.
+- Modify styles using Tailwind CSS utility classes or add custom CSS as needed.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
+
+---
+
 ### **📌 Project: Portfolio Website of SHAIL K PATEL**  
 #### **1. Metadata Summary**  
 - **Title:** Shail K Patel  

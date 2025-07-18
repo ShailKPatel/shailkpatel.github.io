@@ -77,10 +77,10 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'Bootstrap', icon: 'assets/images/logo/bootstrap.png', level: '65%' },
         { name: 'Tailwind CSS', icon: 'assets/images/logo/Tailwind.png', level: '68%' },
         { name: 'JavaScript', icon: 'assets/images/logo/ecmascript.png', level: '75%' },
-        { name: 'MySQL', icon: 'assets/images/logo/mysql.png', level: '70%' },
-        { name: 'PostgreSQL', icon: 'assets/images/logo/postgressql.png', level: '68%' },
-        { name: 'Java', icon: 'assets/images/logo/java.png', level: '65%' },
-        { name: 'Git', icon: 'assets/images/logo/git.png', level: '75%' }
+        { name: 'MySQL', icon: 'assets/images/logo/mysql.png', level: '90%' },
+        { name: 'PostgreSQL', icon: 'assets/images/logo/postgressql.png', level: '88%' },
+        { name: 'Java', icon: 'assets/images/logo/java.png', level: '85%' },
+        { name: 'Git', icon: 'assets/images/logo/git.png', level: '95%' }
     ];
 
     // Populate Skills Section

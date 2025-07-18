@@ -837,7 +837,7 @@ body.dark-theme .skill-item::before {
 
 .skill-name {
     font-weight: 600;
-    color: #1a1a1a;
+    /* color: #1a1a1a; */
     margin-bottom: 0.5rem;
 }
 

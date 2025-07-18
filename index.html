@@ -93,7 +93,7 @@
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
       <div class="max-w-7xl mx-auto px-6 py-4">
         <div class="flex justify-between items-center">
-          <div class="text-2xl font-bold text-black hover:scale-105 transition-transform duration-300 cursor-pointer">
+          <div id="navbar-brand" class="text-2xl font-bold text-black hover:scale-105 transition-transform duration-300 cursor-pointer">
             Shail K Patel
           </div>
           <div class="hidden md:flex space-x-8">
@@ -463,5 +463,12 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+      // Scroll to top when navbar brand is clicked
+      document.getElementById('navbar-brand')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    </script>
   </body>
 </html>

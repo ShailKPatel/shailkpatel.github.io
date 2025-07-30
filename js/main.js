@@ -95,11 +95,11 @@ document.addEventListener('DOMContentLoaded', function() {
             skillElement.innerHTML = `
                 <img src="${skill.icon}" alt="${skill.name}" class="skill-icon" />
                 <div class="skill-name">${skill.name}</div>
-                <div class="skill-level">Proficiency: ${skill.level}</div>
-            `;
-            skillsContainer.appendChild(skillElement);
-        });
-    }
+                `;
+                skillsContainer.appendChild(skillElement);
+            });
+        }
+        // <div class="skill-level">Proficiency: ${skill.level}</div>
 
     // Education Semester Toggle
     const semesterBtns = document.querySelectorAll('.semester-btn:not(.disabled)');

@@ -416,7 +416,7 @@ body.dark-theme .hero-subtitle .highlight::after {
 }
 
 .profile-image-wrapper:hover {
-    transform: rotateY(15deg) rotateX(8deg) scale(1.05);
+    transform: rotateY(8deg) rotateX(8deg) scale(1.025);
 }
 
 .profile-image {

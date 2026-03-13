@@ -13,11 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Theme Toggle Functionality
     if (themeToggle) {
-        // Check for saved theme preference or default to light mode
-        const savedTheme = localStorage.getItem('theme') || 'light';
+        // Check for saved theme preference or default to dark mode
+        const savedTheme = localStorage.getItem('theme') || 'dark';
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-theme');
             themeToggle.checked = true;
+        } else {
+            document.body.classList.remove('dark-theme');
+            themeToggle.checked = false;
         }
 
         themeToggle.addEventListener('change', function() {

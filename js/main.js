@@ -68,24 +68,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Skills Data
     const skills = [
-        { name: 'Supervised ML', icon: 'assets/images/logo/supervised_learning.png', level: '70%' },
-        { name: 'Unsupervised ML', icon: 'assets/images/logo/unsupervised_learning.png', level: '68%' },
-        { name: 'Reinforcement Learning', icon: 'assets/images/logo/reinforcement_learning.png', level: '65%' },
-        { name: 'Deep Learning', icon: 'assets/images/logo/deep_learning.png', level: '80%' },
-        { name: 'Neural Networks', icon: 'assets/images/logo/neural_networks.png', level: '75%' },
-        { name: 'TensorFlow', icon: 'assets/images/logo/TensorFlow.png', level: '60%' },
-        { name: 'Scikit-Learn', icon: 'assets/images/logo/scikit-learn.png', level: '70%' },
-        { name: 'Streamlit', icon: 'assets/images/logo/streamlit.png', level: '80%' },
-        { name: 'Django', icon: 'assets/images/logo/django.png', level: '78%' },
-        { name: 'Flask', icon: 'assets/images/logo/flask.png', level: '90%' },
-        { name: 'MERN Stack', icon: 'assets/images/logo/MERN.png', level: '70%' },
-        { name: 'Bootstrap', icon: 'assets/images/logo/bootstrap.png', level: '65%' },
-        { name: 'Tailwind CSS', icon: 'assets/images/logo/Tailwind.png', level: '68%' },
-        { name: 'EcmaScript', icon: 'assets/images/logo/ecmascript.png', level: '75%' },
-        { name: 'MySQL', icon: 'assets/images/logo/mysql.png', level: '90%' },
+        { name: 'Django', icon: 'https://placehold.co/100x100?text=Django', level: '90%' },
+        { name: 'FastAPI', icon: 'https://placehold.co/100x100?text=FastAPI', level: '80%' },
+        { name: 'Docker', icon: 'https://placehold.co/100x100?text=Docker', level: '75%' },
+        { name: 'LangChain', icon: 'https://placehold.co/100x100?text=LangChain', level: '70%' },
+        { name: 'LlamaIndex', icon: 'https://placehold.co/100x100?text=LlamaIndex', level: '65%' },
+        { name: 'RAG', icon: 'https://placehold.co/100x100?text=RAG', level: '75%' },
+        { name: 'OpenAI API', icon: 'https://placehold.co/100x100?text=OpenAI', level: '80%' },
+        { name: 'Hugging Face', icon: 'https://placehold.co/100x100?text=HF', level: '70%' },
+        { name: 'LoRA Fine-tuning', icon: 'https://placehold.co/100x100?text=LoRA', level: '60%' },
         { name: 'PostgreSQL', icon: 'assets/images/logo/postgressql.png', level: '88%' },
-        { name: 'Java', icon: 'assets/images/logo/java.png', level: '85%' },
-        { name: 'Git', icon: 'assets/images/logo/git.png', level: '95%' }
+        { name: 'Git', icon: 'assets/images/logo/git.png', level: '95%' },
+        { name: 'System Design', icon: 'https://placehold.co/100x100?text=SysDesign', level: '75%' }
     ];
 
     // Populate Skills Section

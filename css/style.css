@@ -902,24 +902,30 @@ body.dark-theme .skill-level {
 }
 
 .semester-btn {
-    padding: 0.6rem 1.2rem;
-    border: 2px solid #e2e8f0;
-    background: white;
-    color: #4a5568;
-    border-radius: 25px;
-    font-weight: 500;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: #f1f5f9;
+    color: #334155;
+    border-radius: 8px;
+    font-weight: 600;
     transition: all 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .semester-btn:hover:not(.disabled) {
-    border-color: #000000;
-    color: #000000;
+    background: #e2e8f0;
+    color: #0f172a;
     transform: translateY(-2px);
 }
 
+body.dark-theme .semester-btn {
+    background: #1e293b;
+    color: #cbd5e1;
+}
+
 body.dark-theme .semester-btn:hover:not(.disabled) {
-    border-color: #ffffff;
+    background: #334155;
     color: #ffffff;
 }
 
@@ -949,6 +955,22 @@ body.dark-theme .semester-btn.active {
     animation: fadeInUp 0.5s ease;
 }
 
+.semester-content {
+    min-height: 200px;
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+}
+
+.semester-selector .grid {
+    margin-bottom: 3.53rem;
+}
+
+@media (min-width: 768px) {
+    .semester-content {
+        min-height: 120px;
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -961,22 +983,48 @@ body.dark-theme .semester-btn.active {
 }
 
 .skill-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    color: #1a1a1a;
-    padding: 0.6rem 1rem;
-    border-radius: 20px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    border: 1px solid #dee2e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: transparent;
+    color: #4b5563;
+    padding: 0.5rem 1.2rem;
+    border-radius: 9999px;
+    font-weight: 400;
+    font-size: 0.85rem;
+    border: 1px solid #d1d5db;
     transition: all 0.3s ease;
 }
 
 .skill-badge:hover {
-    background: linear-gradient(135deg, #000000 0%, #333333 100%);
-    color: white;
+    background: #f3f4f6;
+    color: #111827;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: #9ca3af;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-theme .skill-badge {
+    color: #9ca3af;
+    border-color: #4b5563;
+}
+
+body.dark-theme .skill-badge:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #f3f4f6;
+    border-color: #6b7280;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+
+.semester-skills .skill-badge {
+    flex: 0 0 calc(50% - 6px);
+}
+
+@media (min-width: 768px) {
+    .semester-skills .skill-badge {
+        flex: 0 0 calc(33.333% - 8px);
+    }
 }
 
 body.dark-theme .skill-badge:hover {

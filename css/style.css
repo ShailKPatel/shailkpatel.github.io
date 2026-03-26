@@ -1254,8 +1254,8 @@ body.dark-theme #certificates-container .relative {
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  max-width: 1200px;
+  gap: 0.25rem;
+  /* max-width: 1200px; */
   margin: 0 auto;
 }
 
@@ -1268,7 +1268,7 @@ body.dark-theme #certificates-container .relative {
 @media (min-width: 1024px) {
   .skills-grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: 4rem;
+    gap: 1rem;
   }
 }
 
@@ -1284,7 +1284,7 @@ body.dark-theme #certificates-container .relative {
 .column-header {
     font-family: inherit;
     font-weight: 700;
-    font-size: 19px;
+    font-size: 1.7rem;
     margin-bottom: 1.5rem;
 }
 
@@ -1303,8 +1303,8 @@ body.dark-theme #certificates-container .relative {
 
 .skills-section .skill-item,
 #skills .skill-item {
-    padding: 0.75rem 0;
-    font-size: 14px;
+    padding: 0.2rem 0;
+    font-size: 17px;
     line-height: 1.6;
     border-bottom: solid rgba(255, 255, 255, 0.05);
     background: transparent !important;
@@ -1312,7 +1312,7 @@ body.dark-theme #certificates-container .relative {
     border: none !important;
     box-shadow: none !important;
     display: block;
-    transition: none !important;
+    transition: color 0.2s ease;
 }
 
 
@@ -1321,10 +1321,21 @@ body.dark-theme #certificates-container .relative {
     border-bottom: none;
 }
 
+/* Skills list hover effects */
+body.dark-theme .skills-section .skill-item:hover,
+body.dark-theme #skills .skill-item:hover {
+  color: #ffffff !important;
+}
+
+body:not(.dark-theme) .skills-section .skill-item:hover,
+body:not(.dark-theme) #skills .skill-item:hover {
+  color: #000000 !important;
+}
+
 /* Dark theme already uses white text, enhance specificity */
 body.dark-theme .column-header,
 body.dark-theme .skill-item {
-    color: inherit;
+    color: #cccccc;
 }
 
 body:not(.dark-theme) .skills-section {

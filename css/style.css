@@ -48,6 +48,14 @@ body.dark-theme .text-black {
     color: #ffffff !important;
 }
 
+#skills {
+    background-color: transparent !important;
+} 
+
+#skills .skills-grid-container {
+    background-color: transparent !important;
+}
+
 body.dark-theme .text-gray-600 {
     color: #a0a0a0 !important;
 }
@@ -62,7 +70,6 @@ body.dark-theme nav {
 }
 
 body.dark-theme .project-card,
-body.dark-theme .education-card,
 body.dark-theme .contact-card,
 body.dark-theme .skill-item {
     background: #1a1a1a !important;
@@ -76,16 +83,7 @@ body.dark-theme .skill-badge {
     border-color: #444444 !important;
 }
 
-body.dark-theme .semester-btn {
-    background: #2a2a2a !important;
-    color: #ffffff !important;
-    border-color: #444444 !important;
-}
 
-body.dark-theme .semester-btn.disabled {
-    background: #1a1a1a !important;
-    color: #666666 !important;
-}
 
 /* Navigation Styles */
 .nav-link {
@@ -837,6 +835,35 @@ body.dark-theme {
     font-weight: 500;
 }
 
+.project-url {
+  position: relative;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: #3b82f6;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.project-url:hover,
+.project-url:active {
+  color: #60a5fa;
+}
+
+body.dark-theme .project-url {
+  color: #60a5fa;
+}
+
+body.dark-theme .project-url:hover,
+body.dark-theme .project-url:active {
+  color: #93c5fd;
+}
+
+body.dark-theme .tech-tag {
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+    color: #000000;
+}
+
 body.dark-theme .tech-tag {
     background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
     color: #000000;
@@ -893,17 +920,7 @@ body.dark-theme .project-link:hover {
     overflow: hidden;
 }
 
-.skill-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #000000 0%, #333333 100%);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
+/* .skill-item::before { REMOVED hover line } */
 
 body.dark-theme .skill-item::before {
     background: linear-gradient(90deg, #ffffff 0%, #cccccc 100%);
@@ -947,31 +964,7 @@ body.dark-theme .skill-level {
     color: #ffffff;
 }
 
-/* Education Section */
-.education-card {
-    background: white;
-    border-radius: 20px;
-    padding: 3rem;
-    box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.1),
-        0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.4s ease;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
 
-.education-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 
-        0 25px 60px rgba(0, 0, 0, 0.15),
-        0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.education-logo {
-    background: white;
-    border-radius: 20px;
-    padding: 1rem;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
 
 .semester-btn {
     padding: 0.8rem 1.5rem;
@@ -1089,15 +1082,7 @@ body.dark-theme .skill-badge:hover {
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
 }
 
-.semester-skills .skill-badge {
-    flex: 0 0 calc(50% - 6px);
-}
 
-@media (min-width: 768px) {
-    .semester-skills .skill-badge {
-        flex: 0 0 calc(33.333% - 8px);
-    }
-}
 
 body.dark-theme .skill-badge:hover {
     background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
@@ -1247,7 +1232,133 @@ body.dark-theme #certificates-container .relative {
   box-shadow: none !important;
 }
 
+/* Skills Section Styles */
+.skills-grid-container {
+  position: relative;
+  padding-top: 3rem;
+  padding-bottom: 0rem;
+  max-width: none;
+  width: 100%;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.decorative-line {
+  width: 40px;
+  height: 2px;
+  background: #ffffff;
+  margin: 1.5rem auto 4rem;
+  border-radius: 1px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+  }
+}
+
+.skill-column {
+    padding: 1rem 0;
+}
+
+.skills-list,
+.skill-item {
+    text-align: left;
+}
+
+.column-header {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 19px;
+    margin-bottom: 1.5rem;
+}
+
+.column-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skills-section .skill-item,
+#skills .skill-item {
+    padding: 0.75rem 0;
+    font-size: 14px;
+    line-height: 1.6;
+    border-bottom: solid rgba(255, 255, 255, 0.05);
+    background: transparent !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: block;
+    transition: none !important;
+}
+
+
+
+.skill-item:last-child {
+    border-bottom: none;
+}
+
+/* Dark theme already uses white text, enhance specificity */
+body.dark-theme .column-header,
+body.dark-theme .skill-item {
+    color: inherit;
+}
+
+body:not(.dark-theme) .skills-section {
+    color: #1a1a1a;
+}
+
+body:not(.dark-theme) .column-header {
+    color: #000000;
+}
+
+body:not(.dark-theme) .skill-item {
+    color: rgba(0, 0, 0, 0.65);
+}
+
+body:not(.dark-theme) .decorative-line {
+  background: #000000;
+}
+
+body:not(.dark-theme) .column-divider {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+body:not(.dark-theme) .skill-item {
+  border-bottom-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Override old skill-item styles for new use */
+.skill-item:not(.old-skill-item) {
+  transition: none;
+  transform: none;
+  box-shadow: none;
+}
+
 /* Common top-right date class */
 .date-top-right {
-  @apply absolute top-0 right-0 self-start text-sm;
+    @apply absolute top-0 right-0 self-start text-sm;
 }

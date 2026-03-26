@@ -66,58 +66,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Skills Data
-const skills = [
-    { name: 'Django', icon: 'assets/images/logo/django.png'},
-    { name: 'FastAPI', icon: 'https://fastapi.tiangolo.com/img/logo-margin/logo-teal.svg'},
-    { name: 'Docker', icon: 'https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png'},
-    { name: 'LangChain', icon: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/langchain.svg'},
-    { name: 'LlamaIndex', icon: 'https://raw.githubusercontent.com/run-llama/logos/main/llamaindex-logo.svg'},
-    { name: 'LangGraph', icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAIVBMVEX49/8cPDz9/f8CLCvS1NsAHx2rs7ji5OtCWFpmdniGkpazUuCRAAAB3klEQVRYhe2V25bDIAhFEQQv///Bg6JGTdrJTN+6Yi8PMWwPR0RwHw54AA/gAXwpgG6M1wBil8X/MiQ7pmsA54CIgG9HmQ6ZLwAUA8LNgSHSDuB8O7wQcIhoABbsU+V7gyA8A2jEizopLwlmQyPQAaA0QvhtOlmtGmslOgDjjWgJhcvlg9VB7A8GYEqgJZYuJJR4J0Go67UkCoDHO5KMwP5EqPGgFgceArkBjvW0knxF0Kko0DXtmntTXF2AKQN7ajZsBIRMzgOuAGmAxTLMdCagV/PEUc2MeoL6tAIYFoD0Kp3j9fwUACs1Upw3vQDWdAP3w4FTfMpqfqSsv0MxXgKwK6CMR3z5E5Vc4nEHwArIndBy1UV1n/T4sGZHizcGIL8SYBxVS0I33syJpYjmeH+1jVXyLKHsgCmBkdXk91pIbSJ0DXWmK9BSjGtxpL2Ux4yZqBlj9wBr/PZeL+U9Bw0pfgV1M2Krgpx4jze3t+NcJ7RZZEypnIvaGmodEu/rw9QPZhdC4piipCQBtYtb1Yj2+13m1FCOlliHhyASgw9wNDDcO+XS0nYC2A2wS17jl6b617YOp7ZuF8tNBl5dLFWEb9LffMrw6epqc59frlZ9n1zv/xoP4AE8gK8B/ADS9hUEHxQacgAAAABJRU5ErkJggg=='},
-    { name: 'LiteLLM', icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAZlBMVEVHcEyXmZubpq8xcaNfbHmoq66mqayGmapSYnFSY3E7iMS8vsDo6ekzgr5XWFqoqq0gZZgjHyAiZ5q4ur0zfbWVl5mBg4fJy8ogDwAXEBGUlZfW2d1uoMuEkqL96balv9dsbW8lR2WMQFisAAAACnRSTlMAjmbbHqHNP2+0k5V8cAAAAeNJREFUWIXtleGSgiAURkktTcU2Ualwc3v/l1xAUMQLmPtrZzo6Tjme714RFKEPHz78X5I0jaLDkXM6nd4y04grlyVvqBeQYLtJkrrcUEB2PlecDrCIoJC47Wrkx1alpmxngLYXPpktA78++aDrCMgqy4crOwOM8mL8vDIQkBh61fpr86Hk+Nr3qwWljLHS6bduV6ilxuF3BXXJs2sHZIHuCbHlsmQM8iHdthkd+j7HGE9+qvUHpBeGzYah5ybOcc6xnx+oG8UHWVaqIzpgvHdo6AmdS/emugjg869roWkz67JvW9cBESgLVPMMtnVAKi6lHEd5CrRuBiTi4qdk6TNdPXf6MoC3T56rAF2+d8sq4Cj6lzolK31wN68DpgGYFy+Zxt5RHk+HXN7AaGl5njdQefsMirROxkXOpllHPUNnBFANY8xcLgOgQ4HIXqBq0obGzhcg10u4NBQgFvlKdqEuQ70il8t0m2xehcxnugeU7lZVAIpwgxc0al9t88HYxGKMvyBquY8/5J9aHeZNnB/fB3G9G/1OzeIa7COI+V1u9mAE7H0KUwN/DADng/j8BHbvDVxvYaZPK+C/7tcwngaa2wb/ig6SGLqBTaCH4FusRrzcX7f7FlQAQLeNMaB9QLRb+AXG75PCma7RZwAAAABJRU5ErkJggg=='},
-    { name: 'Hugging Face', icon: 'https://huggingface.co/front/assets/huggingface_logo.svg'},
-    { name: 'LoRA Fine-tuning', icon: 'https://cdn-icons-png.flaticon.com/512/2103/2103633.png'},  
-    { name: 'PostgreSQL', icon: 'assets/images/logo/postgressql.png'},
-    { name: 'Git', icon: 'assets/images/logo/git.png'},
-    { name: 'System Design', icon: 'https://cdn-icons-png.flaticon.com/512/1581/1581882.png'}
-];
+// Skills Data - REMOVED for static HTML
+// const skills = [...];
+// ... population code removed
 
-    // Populate Skills Section
-    const skillsContainer = document.querySelector('#skills .grid');
-    if (skillsContainer) {
-        skills.forEach((skill, index) => {
-            const skillElement = document.createElement('div');
-            skillElement.className = 'skill-item fade-in';
-            skillElement.style.animationDelay = `${index * 0.1}s`;
-            skillElement.innerHTML = `
-                <img src="${skill.icon}" alt="${skill.name}" class="skill-icon" />
-                <div class="skill-name">${skill.name}</div>
-                `;
-                skillsContainer.appendChild(skillElement);
-            });
-        }
-        // <div class="skill-level">Proficiency: ${skill.level}</div>
 
-    // Education Semester Toggle
-    const semesterBtns = document.querySelectorAll('.semester-btn:not(.disabled)');
-    const semesterSkills = document.querySelectorAll('.semester-skills');
-
-    semesterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const semester = this.dataset.semester;
-            
-            // Remove active class from all buttons and skills
-            semesterBtns.forEach(b => b.classList.remove('active'));
-            semesterSkills.forEach(s => s.classList.remove('active'));
-            
-            // Add active class to clicked button and corresponding skills
-            this.classList.add('active');
-            const targetSkills = document.querySelector(`.semester-skills[data-semester="${semester}"]`);
-            if (targetSkills) {
-                targetSkills.classList.add('active');
-            }
-        });
-    });
 
     // Smooth scrolling for navigation links
     navLinks.forEach(link => {
@@ -169,7 +122,7 @@ const skills = [
     }, observerOptions);
 
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.project-card, .education-card, .contact-card');
+    const animateElements = document.querySelectorAll('.project-card, .contact-card');
     animateElements.forEach(el => {
         observer.observe(el);
     });

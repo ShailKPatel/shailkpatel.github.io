@@ -65,8 +65,12 @@ body.dark-theme .border-gray-200 {
 }
 
 body.dark-theme nav {
-    background: rgba(10, 10, 10, 0.8) !important;
+    background: rgba(10, 10, 10, 0.95) !important;
     border-color: #333333 !important;
+}
+
+nav {
+    background: rgba(255, 255, 255, 0.95) !important;
 }
 
 body.dark-theme .project-card,
@@ -149,6 +153,13 @@ body.dark-theme .nav-link.active {
 /* Theme Toggle Switch */
 .theme-toggle-container {
     position: relative;
+    margin-right: 1rem;
+}
+
+@media (min-width: 768px) {
+    .theme-toggle-container {
+        margin-right: 1.5rem;
+    }
 }
 
 .theme-toggle-input {
@@ -607,7 +618,7 @@ body.dark-theme .btn-secondary:hover {
     margin-bottom: 1.25rem;
     margin-top: 0;        /* added */
     position: relative;
-    opacity: 0;
+    /* opacity: 0; */
     transform: translateY(30px);
     transition: all 0.8s ease;
 }
@@ -797,9 +808,6 @@ body.dark-theme .section-title::after {
   border-color: #374151;
 }
 
-.pdf-canvas:hover {
-  opacity: 0.92;
-}
 
 .pdf-page-indicator {
   font-size: 0.8rem;
@@ -1232,7 +1240,7 @@ body.dark-theme .skill-badge:hover {
 
 /* Section Heights - Full viewport minimum except contact */
 section {
-  min-height: 95vh;
+  min-height: 100vh;
 }
 
 #contact {

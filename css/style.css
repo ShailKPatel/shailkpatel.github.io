@@ -606,7 +606,8 @@ body.dark-theme .btn-secondary:hover {
     letter-spacing: -0.02em;
     text-align: center;
     color: #000000;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    margin-top: 0;        /* added */
     position: relative;
     opacity: 0;
     transform: translateY(30px);

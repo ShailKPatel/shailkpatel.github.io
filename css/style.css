@@ -699,15 +699,36 @@ body.dark-theme .section-title::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.25rem;
     flex-wrap: wrap;
     gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .project-header {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .project-title {
-    font-size: 1.8rem;
+    font-size: 2.8rem;
     font-weight: 700;
     color: #1a1a1a;
+    font-family: 'Times New Roman', Times, serif !important;
+}
+
+.paper-title {
+    font-family: 'Times New Roman', Times, serif !important;
+    text-align: left;
+    flex: 1;  /* takes remaining space, leaves room for date */
+}
+
+.experience-title {
+    font-family: 'Times New Roman', Times, serif !important;
+    font-size: 2.3rem;
 }
 
 .project-date {
@@ -717,6 +738,26 @@ body.dark-theme .section-title::after {
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
+    margin-left: auto;  /* pushes to the right */
+    align-self: flex-start;  /* aligns to top */
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.project-date {
+    color: #000000;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    white-space: nowrap;  /* prevents date from wrapping */
+    flex-shrink: 0;       /* prevents date from squishing */
 }
 
 body.dark-theme .project-date {
@@ -752,8 +793,38 @@ body.dark-theme .project-features li::before {
 .project-tech {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0;
     margin-bottom: 1.5rem;
+}
+
+.project-tech {
+    font-size: 0.9rem;
+    color: white !important;
+    font-weight: 400;
+    margin-top: 0.5rem;
+}
+
+.tech-tag {
+    font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+    font-weight: 400 !important;
+}
+
+.tech-tag:not(:last-child)::after {
+    content: ', ';
+    color: inherit;
+}
+
+.tech-tag {
+    background: none !important;
+    color: inherit !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+}
+
+body.dark-theme {
+    color: #aaa !important;
 }
 
 .tech-tag {
@@ -1119,4 +1190,63 @@ body.dark-theme ::-webkit-scrollbar-track {
 body.dark-theme .btn-3d:focus,
 body.dark-theme .project-link:focus {
   outline-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Certificates Full Width Iframe */
+#certificates-wrapper {
+  max-width: 70vw !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  margin: 0 auto !important;
+}
+
+@media (min-width: 768px) {
+  #certificates-wrapper {
+    max-width: 70vw !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
+#certificates-container {
+  padding: 0 !important;
+  border-radius: 0 !important;
+  margin-bottom: 2rem !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+#certificates-container .relative {
+  width: 100% !important;
+  height: 70vh !important;
+  min-height: 600px !important;
+  max-height: 90vh !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+  margin: 1rem 0 !important;
+}
+
+#certificates iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 12px !important;
+  border: none !important;
+}
+
+@media (max-width: 768px) {
+  #certificates-container .relative {
+    height: 60vh !important;
+    margin: 0.5rem 0 !important;
+  }
+}
+
+body.dark-theme #certificates-container .relative {
+  box-shadow: none !important;
+}
+
+/* Common top-right date class */
+.date-top-right {
+  @apply absolute top-0 right-0 self-start text-sm;
 }

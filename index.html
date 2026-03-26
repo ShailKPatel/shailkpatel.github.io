@@ -192,16 +192,17 @@
         </div>
         
         <div class="space-y-8 w-full">
-          <!-- New Experience Entry -->
+
+          <!-- Experience 1 -->
           <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6 md:p-8">
             <div class="mb-6">
               <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
-                  <h3 class="text-3xl font-bold text-black dark:text-white">Stealth Startup (Restaurant Tech)</h3>
+                  <h3 class="text-3xl font-bold text-black dark:text-white experience-title">Stealth Startup (Restaurant Tech)</h3>
                   <h4 class="role-title text-xl font-semibold text-black dark:text-white mb-2">Founding Machine Learning Engineer</h4>
                   <div class="text-gray-500 dark:text-gray-400">Seattle, USA</div>
                 </div>
-                <div class="project-date text-gray-500 dark:text-gray-400">Nov. 2025 – present</div>
+                <div class="project-date date-top-right text-gray-500 dark:text-gray-400">Nov. 2025 – present</div>
               </div>
             </div>
 
@@ -214,19 +215,19 @@
             </div>
           </div>
 
+
+          <!-- Experience 2 -->
           <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6 md:p-8">
             <div class="mb-6">
               <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
-                  <h3 class="text-3xl font-bold text-black dark:text-white">GetMySpace (Parking Management Startup)</h3>
+                  <h3 class="text-3xl font-bold text-black dark:text-white experience-title">GetMySpace (Parking Management Startup)</h3>
                   <h4 class="role-title text-xl font-semibold text-black dark:text-white mb-2">Machine Learning Engineer</h4>
                   <div class="text-gray-500 dark:text-gray-400">Ahmedabad, India</div>
                 </div>
-                <div class="project-date text-gray-500 dark:text-gray-400">Jan 2025 – Jun 2025</div>
+                <div class="project-date date-top-right text-gray-500 dark:text-gray-400">Jan 2025 – Jun 2025</div>
               </div>
             </div>
-            
-            
             <div class="project-content">
               <ul class="project-features text-gray-600 dark:text-gray-300">
                 <li class="flex items-start">
@@ -258,11 +259,14 @@
     <div class="space-y-8">
       <!-- Research Paper Entry -->
       <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6">
-        <div class="project-header">
-          <h3 class="project-title text-2xl font-bold text-black dark:text-white">
+        <div class="project-header relative h-fit">
+          <h3 class="paper-title text-2xl font-bold text-black dark:text-white pr-28">
             A Two-Stage, Leakage-Aware Framework for Early Academic Risk Detection in Undergraduate Engineering Cohorts
           </h3>
-          <span class="project-date text-gray-500 dark:text-gray-400">Sep 2025</span>
+          <span class="project-date date-top-right text-gray-500 dark:text-gray-400">Sep 2025</span>
+        </div>
+        <div class="project-tech">
+          <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Student Performance Prediction, Early Warning Systems, Ensemble Learning, Stacked Classification, Leakage Prevention, SHAP</span>
         </div>
         <div class="project-content">
           <ul class="project-features text-gray-600 dark:text-gray-300">
@@ -272,14 +276,6 @@
             <li>Tested 50+ classification pipelines for risk detection; best-performing stacking ensemble achieved recall 0.657</li>
             <li>Applied explainability (SHAP) to support model interpretability and trust</li>
           </ul>
-        <div class="project-tech">
-          <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Student Performance Prediction</span>
-          <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Early Warning Systems</span>
-          <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Ensemble Learning</span>
-          <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Stacked Classification</span>
-          <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Leakage Prevention</span>
-          <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Model Explainability (SHAP)</span>
-        </div>
 
           <div class="project-demo">
             <a href="https://doi.org/10.5281/zenodo.17095218" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 inline-block mt-4 px-4 py-2 rounded bg-blue-100 dark:bg-blue-900 hover:bg-blue-200 dark:hover:bg-blue-800 transition">
@@ -303,54 +299,24 @@
         
         <!-- Show one project per row on all screens -->
         <div class="space-y-8">
-          <!-- New Project -->
-          <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6">
-            <div class="project-header">
-              <h3 class="project-title text-2xl font-bold text-black dark:text-white">Time-Turner: Alarm Clock for the Visually Impaired</h3>
-              <span class="project-date text-gray-500 dark:text-gray-400">Mar 2026</span>
-            </div>
-            <div class="project-content">
-              <ul class="project-features text-gray-600 dark:text-gray-300">
-                <li>Designed an accessible alarm clock for blind users using physical dials as input, tactile markers, no app or wifi required</li>
-                <li>Defined persona, user flow, design decisions, risk analysis, and go-to-market roadmap across an 11-page case study</li>
-                <li>Core insight: clock hands as input mechanism rather than output, eliminating the need for a touchscreen or voice entirely</li>
-                <li>Dual-audience design works for both blind and sighted users on the same device with no compromises</li>
-              </ul>
-              <div class="project-tech">
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Product Thinking</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Accessibility</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Hardware</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">UX</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">User Research</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Go-to-Market</span>
-              </div>
-              <div class="project-demo">
-                <a href="assets/pdf/Alarm_Clock_for_Blind_Users_Case_Study.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 inline-block mt-4 px-4 py-2 rounded bg-blue-100 dark:bg-blue-900 hover:bg-blue-200 dark:hover:bg-blue-800 transition">
-                  <span>View Case Study →</span>
-                </a>
-              </div>
-            </div>
-          </div>
+
 
           <!-- Project 1 -->
           <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6">
-            <div class="project-header">
-              <h3 class="project-title text-2xl font-bold text-black dark:text-white">PredictGrad</h3>
-              <span class="project-date text-gray-500 dark:text-gray-400">Jul 2025</span>
+            <div class="project-header relative h-fit">
+              <h3 class="project-title text-2xl font-bold text-black dark:text-white pr-28">PredictGrad</h3>
+              <span class="project-date date-top-right text-gray-500 dark:text-gray-400">Jul 2025</span>
+            </div>
+            <div class="project-tech">
+              <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Python, Scikit-Learn, SHAP, Streamlit</span>
             </div>
             <div class="project-content">
               <ul class="project-features text-gray-600 dark:text-gray-300">
-                <li>Built a full ML pipeline to predict Semester 3 marks and detect academic risk</li>
+                <li>Built a full ML pipeline to predict future semester marks and detect academic risk</li>
                 <li>Regression: Voting Regressor (Ridge + Lasso + ElasticNet)</li>
                 <li>Classification: Stacking (CatBoost, LGBM, ExtraTrees)</li>
                 <li>Deployed as interactive Streamlit app with XAI explanations</li>
               </ul>
-              <div class="project-tech">
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Python</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Scikit-learn</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">SHAP</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Streamlit</span>
-              </div>
               <div class="project-demo">
                 <a href="https://predictgrad.streamlit.app/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 inline-block mt-4 px-4 py-2 rounded bg-blue-100 dark:bg-blue-900 hover:bg-blue-200 dark:hover:bg-blue-800 transition">
                   <span>Try It Live →</span>
@@ -359,40 +325,15 @@
             </div>
           </div>
 
+
           <!-- Project 2 -->
           <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6">
-            <div class="project-header">
-              <h3 class="project-title text-2xl font-bold text-black dark:text-white">Falsifi.AI</h3>
-              <span class="project-date text-gray-500 dark:text-gray-400">Aug 2025</span>
+            <div class="project-header relative h-fit">
+              <h3 class="project-title text-2xl font-bold text-black dark:text-white pr-28">Constitution Preamble Clustering</h3>
+              <span class="project-date date-top-right text-gray-500 dark:text-gray-400">Oct 2025</span>
             </div>
-            <div class="project-content">
-              <ul class="project-features text-gray-600 dark:text-gray-300">
-                <li>Verifies scanned signatures as genuine or forged using deep learning-based handwriting analysis.</li>
-                <li>Runs ~5 experimental pipelines combining distinct preprocessing and model architectures for robustness.</li>
-                <li>Signer-disjoint train/val/test on the CEDAR dataset to evaluate on unseen identities.</li>
-                <li>Streamlit UI for uploading an anchor and a candidate; outputs label, confidence, and GradCAM/SHAP explanations.</li>
-              </ul>
-              <div class="project-tech">
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Python</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">PyTorch</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">CNNs</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">ResNet</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">TorchVision</span>
-              </div>
-              <div class="project-demo">
-                <a href="https://falsifi-ai.streamlit.app/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 inline-block mt-4 px-4 py-2 rounded bg-blue-100 dark:bg-blue-900 hover:bg-blue-200 dark:hover:bg-blue-800 transition">
-                  <span>Try It Live →</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- Project 3 -->
-          <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6">
-            <div class="project-header">
-              <h3 class="project-title text-2xl font-bold text-black dark:text-white">Constitution Preamble Clustering</h3>
-              <span class="project-date text-gray-500 dark:text-gray-400">Oct 2025</span>
+            <div class="project-tech">
+                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Python, Sentence-Transformers, Scikit-Learn, PCA, Plotly, Streamlit</span>
             </div>
             <div class="project-content">
               <ul class="project-features text-gray-600 dark:text-gray-300">
@@ -401,14 +342,6 @@
                 <li>Built an interactive Streamlit dashboard with PCA and Plotly for visualization, interpretability, and exploration of global constitutional themes.</li>
                 <li>Mapped nations into clusters such as Legal-Institutional, Unity & Pluralism, and Faith & Founding, offering insight into shared governance philosophies.</li>
               </ul>
-              <div class="project-tech">
-                  <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Python</span>
-                  <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Sentence-Transformers</span>
-                  <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">scikit-learn</span>
-                  <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">PCA</span>
-                  <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Plotly</span>
-                  <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Streamlit</span>
-              </div>
               <div class="project-demo">
                 <a href="https://constitutional-values.streamlit.app/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 inline-block mt-4 px-4 py-2 rounded bg-blue-100 dark:bg-blue-900 hover:bg-blue-200 dark:hover:bg-blue-800 transition">
                   <span>Try It Live →</span>
@@ -420,11 +353,15 @@
 
 
 
-          <!-- Project 5 -->
+          <!-- Project 3 -->
           <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6">
-            <div class="project-header">
-              <h3 class="project-title text-2xl font-bold text-black dark:text-white">Beyond The Marks</h3>
-              <span class="project-date text-gray-500 dark:text-gray-400">Mar 2025</span>
+            <div class="project-header relative h-fit">
+              <h3 class="project-title text-2xl font-bold text-black dark:text-white pr-28">Beyond The Marks</h3>
+              <span class="project-date date-top-right text-gray-500 dark:text-gray-400">Mar 2025</span>
+            </div>
+            <div class="project-tech">
+              <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Python, SHAP, Pandas, Seaborn</span>
+
             </div>
             <div class="project-content">
               <ul class="project-features text-gray-600 dark:text-gray-300">
@@ -433,12 +370,6 @@
                 <li>Quantified teacher effectiveness with performance indicators</li>
                 <li>Statistical analysis of attendance, grades, and student features</li>
               </ul>
-              <div class="project-tech">
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Python</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">SHAP</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Pandas</span>
-                <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Matplotlib</span>
-              </div>
               <div class="project-demo">
                 <a href="https://beyondthemarks.streamlit.app/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 inline-block mt-4 px-4 py-2 rounded bg-blue-100 dark:bg-blue-900 hover:bg-blue-200 dark:hover:bg-blue-800 transition">
                   <span>Try It Live →</span>
@@ -453,10 +384,10 @@
     </section>
 
 
-
 <!-- Certificates Section -->
 <section id="certificates" class="py-10 bg-white dark:bg-gray-900">
-  <div class="max-w-7xl mx-auto px-6">
+  <div id="certificates-wrapper" class="w-full">
+
 
     <!-- Header -->
     <div class="text-center mb-0 mt-0">
@@ -466,10 +397,12 @@
 
     <!-- Embedding area -->
     <div class="space-y-8 w-full mt-4">
-      <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6 md:p-8">
+
+      <div id="certificates-container" class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-0">
         <!-- keep wrapper full width (no fixed heights) -->
-        <div class="relative w-full">
+        <div class="relative w-full h-[80vh] md:h-[70vh] max-h-[800px]">
           <iframe 
+
             src="https://shailkpatel.notion.site/ebd//29a5ceb0c23a815fb201fc6adc8ea452?v=29a5ceb0c23a815d95e2000c058f9918" 
             width="100%" 
             height="600" 

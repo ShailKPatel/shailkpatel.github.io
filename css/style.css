@@ -1090,6 +1090,15 @@ body.dark-theme .skill-badge:hover {
     box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
 }
 
+/* Section Heights - Full viewport minimum except contact */
+section {
+  min-height: 95vh;
+}
+
+#contact {
+  min-height: unset;
+}
+
 /* Contact Section */
 .contact-card {
     background: white;
@@ -1285,14 +1294,15 @@ body.dark-theme #certificates-container .relative {
     font-family: inherit;
     font-weight: 700;
     font-size: 1.7rem;
-    margin-bottom: 1.5rem;
+    /* margin-bottom: 1.5rem; */
 }
 
 .column-divider {
     width: 100%;
     height: 1px;
     background: rgba(255, 255, 255, 0.2);
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
+    margin-top: 0.2rem;
 }
 
 .skills-list {
@@ -1304,7 +1314,7 @@ body.dark-theme #certificates-container .relative {
 .skills-section .skill-item,
 #skills .skill-item {
     padding: 0.2rem 0;
-    font-size: 17px;
+    font-size: clamp(1.2rem, 1.2vw, 1.0625rem);
     line-height: 1.6;
     border-bottom: solid rgba(255, 255, 255, 0.05);
     background: transparent !important;

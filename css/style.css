@@ -684,7 +684,7 @@ body.dark-theme .section-title::after {
 }
 
 .publications-grid .doi-link 
-{font-size: 0.875rem;  color: #60a5fa; transition: color 0.2s ease;  text-decoration: none;  display: block;  margin-bottom: 1rem;}
+{font-size: 0.875rem;  color: #60a5fa;}
 
 .publications-grid .doi-link:hover {color: #8ebdf7;}
 

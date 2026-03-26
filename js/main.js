@@ -57,14 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update active nav link on scroll
     window.addEventListener('scroll', debounce(updateActiveNavLink, 10));
-
-    // Close mobile menu when clicking on a link
-    const mobileLinks = mobileMenu?.querySelectorAll('a');
-    mobileLinks?.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-        });
-    });
+    
+});
 
 // Skills Data - REMOVED for static HTML
 // const skills = [...];
@@ -259,7 +253,93 @@ document.addEventListener('DOMContentLoaded', function() {
             heroTitle.style.animation = 'fadeInUp 1s ease-out';
         }, 500);
     }
-});
+
+    // PDF Viewer (moved from inline HTML script)
+    function initPDFViewer() {
+      if (typeof pdfjsLib === 'undefined') {
+        // Dynamically load pdf.js if not available
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+        script.onload = function() {
+          // Load worker after pdf.js
+          pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+          setupPDF();
+        };
+        document.head.appendChild(script);
+      } else {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        setupPDF();
+      }
+    }
+function setupPDF() {
+    const url = 'assets/pdf/PredictGrad.pdf';
+    const canvas = document.getElementById('pdf-canvas');
+    const indicator = document.getElementById('pdf-page-indicator');
+    const container = document.querySelector('.pdf-viewer-container');
+
+    if (!canvas || !indicator || !container) return;
+
+    const ctx = canvas.getContext('2d');
+    let pdfDoc = null;
+    let currentPage = 1;
+    let totalPages = 0;
+    let rendering = false;
+
+    function renderPage(pageNum) {
+        if (rendering || !pdfDoc) return;
+        rendering = true;
+        canvas.style.opacity = '0.4';
+
+        pdfDoc.getPage(pageNum).then(function (page) {
+            // FIX 1: Access the internal rotation of the PDF page
+            const rotation = page.rotate; 
+
+            // FIX 2: Increase scale to 3.0 for "Retina" sharpness 
+            // and pass the rotation metadata to the viewport
+            const viewport = page.getViewport({ 
+                scale: 3.0, 
+                rotation: rotation 
+            });
+
+            // Set internal high-res resolution
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+
+            // FIX 3: Force the canvas to fill the width of your container 
+            // This prevents the "zoomed out / 1/4 size" look
+            canvas.style.width = "100%";
+            canvas.style.height = "auto";
+
+            const renderCtx = {
+                canvasContext: ctx,
+                viewport: viewport,
+            };
+
+            page.render(renderCtx).promise.then(function () {
+                canvas.style.opacity = '1';
+                indicator.textContent = pageNum + ' / ' + totalPages;
+                rendering = false;
+            });
+        });
+    }
+
+    function nextPage() {
+        if (!pdfDoc || rendering) return;
+        currentPage = (currentPage >= totalPages) ? 1 : currentPage + 1;
+        renderPage(currentPage);
+    }
+
+    pdfjsLib.getDocument(url).promise.then(function (pdf) {
+        pdfDoc = pdf;
+        totalPages = pdf.numPages;
+        renderPage(currentPage);
+    }).catch(err => {
+        console.error('PDF Error:', err);
+        indicator.textContent = 'PDF not found.';
+    });
+
+    container.addEventListener('click', nextPage);
+}
 
 // Performance optimization: Debounce scroll events
 function debounce(func, wait) {
@@ -280,3 +360,29 @@ const debouncedScroll = debounce(() => {
 }, 10);
 
 window.addEventListener('scroll', debouncedScroll);
+
+function renderPage(pageNum) {
+    if (rendering) return;
+    rendering = true;
+    canvas.style.opacity = '0.4';
+
+    pdfDoc.getPage(pageNum).then(function (page) {
+        // High scale (2.0) ensures it is not blurry on high-res screens
+        const viewport = page.getViewport({ scale: 2.0 }); 
+        
+        // Internal resolution (Large for sharpness)
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        const renderCtx = {
+            canvasContext: ctx,
+            viewport: viewport,
+        };
+
+        page.render(renderCtx).promise.then(function () {
+            canvas.style.opacity = '1';
+            indicator.textContent = pageNum + ' / ' + totalPages;
+            rendering = false;
+        });
+    });
+}

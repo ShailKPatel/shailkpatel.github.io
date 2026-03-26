@@ -652,23 +652,163 @@ body.dark-theme .section-title::after {
 
 /* P Cards */
 
-.p-cards {
-    background: white;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.1),
-        0 1px 8px rgba(0, 0, 0, 0.05);
-    transition: all 0.4s ease;
-    transform-style: preserve-3d;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+/* Publications Grid - replaces p-cards */
+.publications-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 2rem;
+  align-items: start;
 }
 
-.p-cards:hover {
-  transform: scale(1.05);
-  box-shadow: 
-    0 20px 50px rgba(0, 0, 0, 0.15),
-    0 5px 20px rgba(0, 0, 0, 0.1);
+@media (max-width: 768px) {
+  .publications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.publications-grid .left-half {
+  display: flex;
+  flex-direction: column;
+}
+
+.publications-grid .doi-link 
+{font-size: 0.875rem;  color: #60a5fa; transition: color 0.2s ease;  text-decoration: none;  display: block;  margin-bottom: 1rem;}
+
+.publications-grid .doi-link:hover {color: #8ebdf7;}
+
+.publications-grid .doi-link:hover {
+  color: #d8eaff;
+}
+
+.publications-grid .paper-title {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.publications-grid .experience-title {
+  font-size: 2.3rem;
+}
+
+.publications-grid .keywords-line 
+{font-size: clamp(0.75rem, 1vw, 0.875rem);  margin-bottom: 1.5rem;}
+
+.publications-grid .keywords-line .tech-tag span 
+{font-style: italic;  color: #6b7280;}
+
+.dark .publications-grid .keywords-line .tech-tag span 
+{color: #9ca3af;}
+
+.publications-grid .keywords-line .tech-tag span 
+{background: none !important; padding: 0 !important;}
+
+.dark .publications-grid .keywords-line {
+  color: #9ca3af;
+}
+
+.publications-grid .project-features {
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  color: #4b5568;
+  line-height: 1.8;
+  list-style: none;
+}
+
+.dark .publications-grid .project-features {
+  color: #d1d5db;
+}
+
+.publications-grid .project-features li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: black;
+  font-weight: bold;
+}
+
+.dark .publications-grid .project-features li::before {
+  color: white;
+}
+
+/* PDF Viewer */
+.pdf-viewer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pdf-stack-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.pdf-stack-shadow {
+  position: absolute;
+  width: 100%;
+  border-radius: 4px;
+  background: #d1d5db;
+}
+
+.dark .pdf-stack-shadow {
+  background: #374151;
+}
+
+.shadow-1 {
+  top: 6px;
+  left: 4px;
+  right: -4px;
+  bottom: -6px;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.shadow-2 {
+  top: 12px;
+  left: 8px;
+  right: -8px;
+  bottom: -12px;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.shadow-3 {
+  top: 18px;
+  left: 12px;
+  right: -12px;
+  bottom: -18px;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.pdf-canvas {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  display: block;
+  transition: opacity 0.25s ease;
+}
+
+.dark .pdf-canvas {
+  border-color: #374151;
+}
+
+.pdf-canvas:hover {
+  opacity: 0.92;
+}
+
+.pdf-page-indicator {
+  font-size: 0.8rem;
+  color: #6b7280;
+  letter-spacing: 0.05em;
+}
+
+.dark .pdf-page-indicator {
+  color: #9ca3af;
 }
 
 .project-content:hover {
@@ -1382,4 +1522,20 @@ body:not(.dark-theme) .skill-item {
 /* Common top-right date class */
 .date-top-right {
     @apply absolute top-0 right-0 self-start text-sm;
+}
+
+.pdf-viewer-container {
+    max-width: 450px; /* Reduced width: Adjust this to change size */
+    margin-left: 0;   /* Keeps container left-aligned */
+}
+
+#pdf-canvas {
+    width: 100%;      /* Makes the canvas fit the container width */
+    height: auto;     /* Maintains A4 aspect ratio */
+    display: block;
+}
+
+.pdf-stack-wrapper {
+    position: relative;
+    width: 100%;
 }

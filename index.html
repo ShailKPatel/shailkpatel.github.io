@@ -245,25 +245,24 @@
 
 <!-- PUBLICATIONS Section -->
 <section id="research" class="py-6 bg-white dark:bg-gray-900">
-  <div class="max-w-7xl mx-auto px-6 mb-20">
+  <div class="mx-auto px-20 mb-20">
     <div class="text-center mb-16">
       <h2 class="section-title text-black dark:text-white">PUBLICATIONS</h2>
-      <!-- <p class="text-xl text-gray-600 dark:text-gray-300 mt-4">Research work in machine learning and data-driven solutions</p> -->
     </div>
 
-    <div class="space-y-8">
-      <!-- Research Paper Entry -->
-      <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6">
-        <div class="project-header relative h-fit">
-          <h3 class="paper-title text-2xl font-bold text-black dark:text-white pr-28">
-            A Two-Stage, Leakage-Aware Framework for Early Academic Risk Detection in Undergraduate Engineering Cohorts
-          </h3>
-          <a href="https://doi.org/10.5281/zenodo.17095218" target="_blank" rel="noopener noreferrer" class="project-url">doi.org/10.5281/zenodo.17095218</a>
-        </div>
-        <div class="project-tech">
-          <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Student Performance Prediction, Early Warning Systems, Ensemble Learning, Stacked Classification, Leakage Prevention, SHAP</span>
-        </div>
-        <div class="project-content">
+    <h3 class="paper-title text-3xl font-bold text-black dark:text-white experience-title" style="margin-bottom: 2rem;">
+      A Two-Stage, Leakage-Aware Framework for Early Academic Risk Detection in Undergraduate Engineering Cohorts
+    </h3>
+
+    <div class="space-y-8" style="margin-top: 2rem;">
+      <div class="publications-grid">
+
+        <!-- Left half: keywords + bullets only -->
+        <div>
+         <div class="project-tech">
+              <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Student Performance Prediction, Early Warning Systems, Ensemble Learning, Stacked Classification, Leakage Prevention, SHAP</span>
+            </div>
+          
           <ul class="project-features text-gray-600 dark:text-gray-300">
             <li>Proposed and implemented a leakage-aware, two-stage ML framework to forecast student academic decline</li>
             <li>Applied leakage-aware modeling to ensure predictions are temporally valid and unbiased</li>
@@ -272,6 +271,27 @@
             <li>Applied explainability (SHAP) to support model interpretability and trust</li>
           </ul>
         </div>
+
+        <!-- Right half: DOI link + PDF Viewer -->
+        <div class="pdf-viewer-container">
+        <a href="https://doi.org/10.5281/zenodo.17095218" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="doi-link"
+          style="margin-left: auto;">
+          doi.org/10.5281/zenodo.17095218
+        </a>          
+        <div class="pdf-stack-wrapper">
+          <div class="pdf-stack-shadow shadow-3"></div>
+          <div class="pdf-stack-shadow shadow-2"></div>
+          <div class="pdf-stack-shadow shadow-1"></div>
+          <canvas id="pdf-canvas" class="pdf-canvas"></canvas>
+        </div>
+        <div class="pdf-controls">
+          <span class="pdf-page-indicator" id="pdf-page-indicator">1 / 1</span>
+        </div>
+      </div>
+      
       </div>
     </div>
   </div>
@@ -525,6 +545,63 @@
     </footer>
 
     <script src="js/main.js"></script>
+
+    <!-- PDF Viewer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+      (function () {
+        const url = 'assets/pdf/PredictGrad.pdf';
+        const canvas = document.getElementById('pdf-canvas');
+        const ctx = canvas.getContext('2d');
+        const indicator = document.getElementById('pdf-page-indicator');
+        const container = document.querySelector('.pdf-viewer-container');
+
+        let pdfDoc = null;
+        let currentPage = 1;
+        let totalPages = 0;
+        let rendering = false;
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+          'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        function renderPage(pageNum) {
+          if (rendering) return;
+          rendering = true;
+          canvas.style.opacity = '0.4';
+
+        pdfDoc.getPage(pageNum).then(function (page) {
+            const viewport = page.getViewport({ scale: 0.65 });  // A4 proportions fit
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+
+            const renderCtx = {
+              canvasContext: ctx,
+              viewport: viewport,
+            };
+
+            page.render(renderCtx).promise.then(function () {
+              canvas.style.opacity = '1';
+              indicator.textContent = pageNum + ' / ' + totalPages;
+              rendering = false;
+            });
+          });
+        }
+
+        function nextPage() {
+          currentPage = currentPage >= totalPages ? 1 : currentPage + 1;
+          renderPage(currentPage);
+        }
+
+        pdfjsLib.getDocument(url).promise.then(function (pdf) {
+          pdfDoc = pdf;
+          totalPages = pdf.numPages;
+          renderPage(currentPage);
+        });
+
+        container.addEventListener('click', nextPage);
+      })();
+    </script>
+
     <script>
       // Set current year in footer
       document.addEventListener('DOMContentLoaded', function() {

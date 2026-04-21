@@ -13,7 +13,7 @@
       content="Shail K Patel, Prototype Engineer, MVP Builder, Python, Streamlit, Machine Learning, Startups, AI, Data Engineering, 0 to 1 Development"
     />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#0a0a0a" />
 
     <!-- Social Sharing (Open Graph for LinkedIn, GitHub previews) -->
     <meta
@@ -50,8 +50,8 @@
     />
     <meta name="twitter:image:alt" content="Photo of Shail K Patel" />
 
-    <!-- Identity Links -->
     <link rel="me" href="https://www.linkedin.com/in/shailkpatel/" />
+    <!-- Identity Links -->
     <link rel="me" href="https://github.com/ShailKPatel" />
     <link rel="me" href="https://github.com/shail-k-patel" />
     <link rel="me" href="https://www.youtube.com/@Shail_K_Patel" />
@@ -61,7 +61,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <link
@@ -113,6 +113,14 @@
                 </span>
               </label>
             </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden" aria-label="Toggle menu">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect y="4" width="20" height="1.5" rx="0.75" fill="currentColor"/>
+                <rect y="9.25" width="20" height="1.5" rx="0.75" fill="currentColor"/>
+                <rect y="14.5" width="20" height="1.5" rx="0.75" fill="currentColor"/>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -189,7 +197,7 @@
         <div class="space-y-8 w-full">
 
           <!-- Experience 1 -->
-          <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6 md:p-8">
+          <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6 md:p-8 reveal">
             <div class="mb-6">
               <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
@@ -212,7 +220,7 @@
 
 
           <!-- Experience 2 -->
-          <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6 md:p-8">
+          <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6 md:p-8 reveal">
             <div class="mb-6">
               <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
@@ -307,13 +315,13 @@
 
 
           <!-- Project 1 -->
-          <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6">
+          <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6 reveal">
             <div class="project-header relative h-fit">
               <h3 class="project-title text-2xl font-bold text-black dark:text-white pr-28">PredictGrad</h3>
               <a href="https://predictgrad.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-url">predictgrad.streamlit.app</a>
             </div>
             <div class="project-tech">
-              <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Python, Scikit-Learn, SHAP, Streamlit</span>
+              <span class="tech-tag bg-gray-200 dark:bg-gray-700 dark:text-gray-100">Ensemble Stacking · BayesSearchCV · Voting Regressor · SHAP/XAI · Boruta Feature Selection · Class Imbalance Handling</span>
             </div>
             <div class="project-content">
               <ul class="project-features text-gray-600 dark:text-gray-300">
@@ -327,7 +335,7 @@
 
 
           <!-- Project 2 -->
-          <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6">
+          <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6 reveal">
             <div class="project-header relative h-fit">
               <h3 class="project-title text-2xl font-bold text-black dark:text-white pr-28">Constitution Preamble Clustering</h3>
               <a href="https://constitutional-values.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-url">constitutional-values.streamlit.app</a>
@@ -344,13 +352,12 @@
 
             </div>
           </div>
-          </div>
 
 
 
 
           <!-- Project 3 -->
-          <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6">
+          <div class="p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6 reveal">
             <div class="project-header relative h-fit">
               <h3 class="project-title text-2xl font-bold text-black dark:text-white pr-28">Beyond The Marks</h3>
               <a href="https://beyondthemarks.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-url">beyondthemarks.streamlit.app</a>
@@ -431,6 +438,7 @@
               <ul class="skills-list">
                 <li class="skill-item">LangChain</li>
                 <li class="skill-item">LangGraph</li>
+                <li class="skill-item">n8n</li>
                 <li class="skill-item">LlamaIndex</li>
                 <li class="skill-item">Hugging Face</li>
                 <li class="skill-item">OpenAI API</li>
@@ -492,36 +500,44 @@
     <!-- Contact Section -->
     <section id="contact" class="py-6 bg-gray-50 dark:bg-gray-900">
       <div class="max-w-7xl mx-auto px-6 mb-20">
-        <div class="text-center mb-16">
-          <h2 class="section-title">Let's Work Together</h2>
-          <br>
-          <p class="text-xl text-gray-600 mt-4">I'd love to hear about your project and how I can help with ML solutions.</p>
-        </div>
-        
-        <div class="space-y-8 w-full text-center">
-          <div class="contact-card p-cards bg-white dark:bg-gray-800 shadow rounded-lg p-6 md:p-8">
-            <p class="text-lg text-gray-600 mb-8">
-              I'm always excited to work on innovative projects that make a real impact. 
-              Whether you need ML solutions, data analysis, or want to explore AI possibilities, 
+        <div class="contact-layout">
+
+          <!-- Left: Statement -->
+          <div class="contact-statement">
+            <span class="contact-eyebrow">Get in touch</span>
+            <h2 class="section-title">Let's Work<br>Together</h2>
+            <p class="contact-body">
+              I'm always excited to work on innovative projects that make a real impact.
+              Whether you need ML solutions, data analysis, or want to explore AI possibilities,
               let's connect and create something amazing together.
             </p>
-            
-            <div class="flex flex-wrap gap-4 justify-center">
-              <a 
-                href="mailto:shailpatel.connect@gmail.com?subject=Hiring%20Inquiry:%20Machine%20Learning%20Role&body=Hi%20Shail,%20I%20came%20across%20your%20portfolio%20and%20am%20interested%20in%20discussing%20a%20potential%20opportunity.%20Can%20we%20schedule%20a%20call?"
-                class="btn-3d btn-primary"
-              >
-                <span>Email Me</span>
-              </a>
-              <a href="https://www.linkedin.com/in/shailkpatel/" target="_blank" class="btn-3d btn-secondary">
-                <span>LinkedIn</span>
-              </a>
-              <a href="http://github.com/ShailKPatel" target="_blank" class="btn-3d btn-secondary">
-                <span>GitHub</span>
-              </a>
-
-            </div>
           </div>
+
+          <!-- Right: Link rows -->
+          <div class="contact-links">
+            <a href="mailto:shailpatel.connect@gmail.com?subject=Hiring%20Inquiry:%20Machine%20Learning%20Role&body=Hi%20Shail,%20I%20came%20across%20your%20portfolio%20and%20am%20interested%20in%20discussing%20a%20potential%20opportunity.%20Can%20we%20schedule%20a%20call?" class="contact-link-row">
+              <div class="contact-link-info">
+                <span class="contact-link-label">Email Me</span>
+                <span class="contact-link-desc">shailpatel.connect@gmail.com</span>
+              </div>
+              <span class="contact-link-arrow">↗</span>
+            </a>
+            <a href="https://www.linkedin.com/in/shailkpatel/" target="_blank" rel="noopener noreferrer" class="contact-link-row">
+              <div class="contact-link-info">
+                <span class="contact-link-label">LinkedIn</span>
+                <span class="contact-link-desc">/in/shailkpatel</span>
+              </div>
+              <span class="contact-link-arrow">↗</span>
+            </a>
+            <a href="http://github.com/ShailKPatel" target="_blank" rel="noopener noreferrer" class="contact-link-row">
+              <div class="contact-link-info">
+                <span class="contact-link-label">GitHub</span>
+                <span class="contact-link-desc">ShailKPatel</span>
+              </div>
+              <span class="contact-link-arrow">↗</span>
+            </a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -541,75 +557,7 @@
       </div>
     </footer>
 
-    <script src="js/main.js"></script>
-
-    <!-- PDF Viewer -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <script>
-      (function () {
-        const url = 'assets/pdf/PredictGrad.pdf';
-        const canvas = document.getElementById('pdf-canvas');
-        const ctx = canvas.getContext('2d');
-        const indicator = document.getElementById('pdf-page-indicator');
-        const container = document.querySelector('.pdf-viewer-container');
-
-        let pdfDoc = null;
-        let currentPage = 1;
-        let totalPages = 0;
-        let rendering = false;
-
-        pdfjsLib.GlobalWorkerOptions.workerSrc =
-          'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-        function renderPage(pageNum) {
-          if (rendering) return;
-          rendering = true;
-          canvas.style.opacity = '0.4';
-
-        pdfDoc.getPage(pageNum).then(function (page) {
-            const viewport = page.getViewport({ scale: 0.65 });  // A4 proportions fit
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
-
-            const renderCtx = {
-              canvasContext: ctx,
-              viewport: viewport,
-            };
-
-            page.render(renderCtx).promise.then(function () {
-              canvas.style.opacity = '1';
-              indicator.textContent = pageNum + ' / ' + totalPages;
-              rendering = false;
-            });
-          });
-        }
-
-        function nextPage() {
-          currentPage = currentPage >= totalPages ? 1 : currentPage + 1;
-          renderPage(currentPage);
-        }
-
-        pdfjsLib.getDocument(url).promise.then(function (pdf) {
-          pdfDoc = pdf;
-          totalPages = pdf.numPages;
-          renderPage(currentPage);
-        });
-
-        container.addEventListener('click', nextPage);
-      })();
-    </script>
-
-    <script>
-      // Set current year in footer
-      document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-      });
-      
-      // Scroll to top when navbar brand is clicked
-      document.getElementById('navbar-brand')?.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    </script>
+    <script src="js/main.js"></script>
   </body>
 </html>

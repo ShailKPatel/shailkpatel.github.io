@@ -1,0 +1,7 @@
+.claude/
+.vscode/
+CLAUDE.md
+SKILL.md
+.env
+node_modules/
+*.log

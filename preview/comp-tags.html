@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  .card{background:var(--ink-900);padding:32px 40px;min-height:210px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:18px}
+  .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--on-dark-3)}
+  .row{display:flex;gap:9px;flex-wrap:wrap}
+  .tag{font-family:var(--font-mono);font-size:12px;letter-spacing:0.03em;padding:5px 12px;border-radius:5px;border:1px solid var(--line-dark-strong);color:var(--on-dark-2)}
+  .tag.solid{background:#ece9e2;color:#0a0a0a;border-color:#ece9e2}
+  .tag.em{border-color:var(--ember-500);color:var(--ember-400)}
+</style>
+</head>
+<body>
+<div class="card theme-dark">
+  <div class="lbl">Tech tags · skill pills</div>
+  <div class="row">
+    <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">LangGraph</span>
+    <span class="tag">FastAPI</span><span class="tag">Django</span><span class="tag">SHAP / XAI</span>
+  </div>
+  <div class="row">
+    <span class="tag solid">RAG Pipelines</span><span class="tag solid">Streamlit</span>
+    <span class="tag em">Featured</span><span class="tag">MongoDB</span><span class="tag">Docker</span>
+  </div>
+</div>
+</body>
+</html>

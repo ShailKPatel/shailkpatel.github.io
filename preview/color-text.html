@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  .wrap{display:flex;min-height:230px}
+  .half{flex:1;padding:26px 30px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:11px}
+  .d{background:var(--ink-900)} .l{background:var(--bone-50)}
+  .lbl{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px}
+  .line{font-family:var(--font-sans);font-size:14px}
+  .swatch{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:middle;margin-right:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="half d theme-dark">
+    <div class="lbl" style="color:var(--on-dark-3)">Text on Ink</div>
+    <div class="line" style="color:var(--on-dark-1)"><span class="swatch" style="background:#ece9e2"></span>Primary — #ece9e2</div>
+    <div class="line" style="color:var(--on-dark-2)"><span class="swatch" style="background:#968f82"></span>Muted — #968f82</div>
+    <div class="line" style="color:var(--on-dark-3)"><span class="swatch" style="background:#57534b"></span>Faint — #57534b</div>
+    <div class="line" style="color:var(--on-dark-3);font-family:var(--font-mono);font-size:11px"><span class="swatch" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2)"></span>hairline 10%</div>
+  </div>
+  <div class="half l theme-light">
+    <div class="lbl" style="color:var(--on-light-3)">Text on Bone</div>
+    <div class="line" style="color:var(--on-light-1)"><span class="swatch" style="background:#14110c"></span>Primary — #14110c</div>
+    <div class="line" style="color:var(--on-light-2)"><span class="swatch" style="background:#6b665b"></span>Muted — #6b665b</div>
+    <div class="line" style="color:var(--on-light-3)"><span class="swatch" style="background:#a39d90"></span>Faint — #a39d90</div>
+    <div class="line" style="color:var(--on-light-3);font-family:var(--font-mono);font-size:11px"><span class="swatch" style="background:rgba(20,17,12,0.12)"></span>hairline 12%</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  .card{background:var(--bone-50);padding:34px;min-height:200px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-around}
+  .item{display:flex;flex-direction:column;gap:14px;align-items:center}
+  .box{width:108px;height:78px;background:#fff;border-radius:14px;border:1px solid var(--line-light)}
+  .n{font-family:var(--font-mono);font-size:10px;color:var(--on-light-2);letter-spacing:0.04em}
+</style>
+</head>
+<body>
+<div class="card theme-light">
+  <div class="item"><div class="box" style="box-shadow:var(--shadow-sm-light)"></div><span class="n">shadow-sm</span></div>
+  <div class="item"><div class="box" style="box-shadow:var(--shadow-md-light)"></div><span class="n">shadow-md</span></div>
+  <div class="item"><div class="box" style="box-shadow:var(--shadow-lg-light)"></div><span class="n">shadow-lg</span></div>
+  <div class="item"><div class="box" style="box-shadow:var(--shadow-ember);border-color:var(--ember-500)"></div><span class="n">ember</span></div>
+</div>
+</body>
+</html>

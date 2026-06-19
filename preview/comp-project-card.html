@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  .stage{background:var(--ink-900);padding:28px 34px;min-height:280px;box-sizing:border-box;display:flex;align-items:center}
+  .pcard{position:relative;background:var(--ink-800);border:1px solid var(--line-dark);border-radius:14px;padding:26px 30px;width:100%;box-shadow:var(--shadow-md-dark);overflow:hidden}
+  .num{position:absolute;top:8px;right:20px;font-family:var(--font-mono);font-weight:700;font-size:66px;color:rgba(255,255,255,0.04);line-height:1}
+  .head{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+  .title{font-family:var(--font-display);font-size:28px;font-weight:500;color:var(--on-dark-1)}
+  .url{font-family:var(--font-mono);font-size:11px;color:var(--ember-500)}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 18px}
+  .tag{font-family:var(--font-mono);font-size:11px;padding:4px 10px;border-radius:5px;border:1px solid var(--line-dark-strong);color:var(--on-dark-2)}
+  ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+  li{position:relative;padding-left:20px;font-size:14px;font-weight:300;color:var(--on-dark-2);line-height:1.5}
+  li::before{content:'→';position:absolute;left:0;color:var(--ember-500);font-family:var(--font-mono)}
+</style>
+</head>
+<body>
+<div class="stage theme-dark">
+  <div class="pcard">
+    <span class="num">01</span>
+    <div class="head"><span class="title">PredictGrad</span><span class="url">predictgrad.streamlit.app</span></div>
+    <div class="tags"><span class="tag">Ensemble Stacking</span><span class="tag">BayesSearchCV</span><span class="tag">SHAP / XAI</span></div>
+    <ul>
+      <li>Full ML pipeline to predict future-semester marks and flag academic risk</li>
+      <li>Voting Regressor (Ridge + Lasso + ElasticNet) for forecasting</li>
+      <li>Stacking classifier (CatBoost, LGBM, ExtraTrees) for detection</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  .card{background:var(--ink-900);padding:30px 40px;min-height:380px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:18px}
+  .row{display:flex;align-items:baseline;gap:20px;border-bottom:1px solid var(--line-dark);padding-bottom:14px}
+  .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;color:var(--on-dark-3);text-transform:uppercase;width:64px;flex-shrink:0}
+  .sample{color:var(--on-dark-1)}
+</style>
+</head>
+<body>
+<div class="card theme-dark">
+  <div class="row"><span class="tag">Display</span><span class="sample" style="font-family:var(--font-display);font-size:52px;font-weight:400;letter-spacing:-0.03em">Larger than life</span></div>
+  <div class="row"><span class="tag">H2</span><span class="sample" style="font-family:var(--font-display);font-size:34px;font-weight:400">Selected Work</span></div>
+  <div class="row"><span class="tag">H3</span><span class="sample" style="font-family:var(--font-display);font-size:24px;font-weight:500">Founding ML Engineer</span></div>
+  <div class="row"><span class="tag">Lead</span><span class="sample" style="font-family:var(--font-sans);font-size:18px;font-weight:300;color:var(--on-dark-2)">Turning product vision into working architecture.</span></div>
+  <div class="row" style="border-bottom:none"><span class="tag">Body</span><span class="sample" style="font-family:var(--font-sans);font-size:15px;font-weight:300;color:var(--on-dark-2)">I build 0-to-1 MVPs for early-stage startups.</span></div>
+</div>
+</body>
+</html>

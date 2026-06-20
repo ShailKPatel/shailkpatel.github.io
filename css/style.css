@@ -354,8 +354,8 @@ section.py-6 {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.038) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.038) 1px, transparent 1px);
     background-size: 72px 72px;
     pointer-events: none;
     z-index: 0;
@@ -370,10 +370,77 @@ body:not(.dark-theme) #hero {
 
 body:not(.dark-theme) #hero::before {
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+        linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
     background-size: 72px 72px;
 }
+
+/* Ghost grid on all non-hero sections */
+body.dark-theme section:not(#hero) {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.014) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+    background-size: 72px 72px;
+}
+
+body:not(.dark-theme) section:not(#hero) {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.022) 1px, transparent 1px);
+    background-size: 72px 72px;
+}
+
+/* =========================================
+   FLOATING CIRCLES — NON-HERO SECTIONS
+   ========================================= */
+section:not(#hero) {
+    position: relative;
+}
+
+/* Keep section content above the circles */
+section:not(#hero) > div {
+    position: relative;
+    z-index: 1;
+}
+
+section:not(#hero)::before,
+section:not(#hero)::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body.dark-theme section:not(#hero)::before { border: 1px solid rgba(255, 255, 255, 0.04); }
+body.dark-theme section:not(#hero)::after  { border: 1px solid rgba(255, 255, 255, 0.028); }
+
+body:not(.dark-theme) section:not(#hero)::before { border: 1px solid rgba(0, 0, 0, 0.05); }
+body:not(.dark-theme) section:not(#hero)::after  { border: 1px solid rgba(0, 0, 0, 0.03); }
+
+@keyframes floatCircle {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-12px); }
+}
+
+/* Per-section sizing, placement, and stagger */
+#experience::before { width: 380px; height: 380px; top: -80px;  right: -60px; animation: floatCircle 20s ease-in-out infinite 0s; }
+#experience::after  { width: 200px; height: 200px; bottom: 8%;  left: 3%;     animation: floatCircle 16s ease-in-out infinite 5s; }
+
+#research::before   { width: 300px; height: 300px; top: 15%;    left: -70px;  animation: floatCircle 22s ease-in-out infinite 2s; }
+#research::after    { width: 160px; height: 160px; bottom: 12%; right: 6%;    animation: floatCircle 14s ease-in-out infinite 8s; }
+
+#projects::before   { width: 350px; height: 350px; top: 5%;     right: 2%;    animation: floatCircle 18s ease-in-out infinite 4s; }
+#projects::after    { width: 220px; height: 220px; bottom: 5%;  left: 6%;     animation: floatCircle 24s ease-in-out infinite 1s; }
+
+#certificates::before { width: 280px; height: 280px; top: 10%;   left: -50px; animation: floatCircle 19s ease-in-out infinite 7s; }
+#certificates::after  { width: 180px; height: 180px; bottom: 10%; right: 4%;  animation: floatCircle 15s ease-in-out infinite 3s; }
+
+#skills::before { width: 320px; height: 320px; top: -60px;  right: 10%; animation: floatCircle 21s ease-in-out infinite 6s; }
+#skills::after  { width: 200px; height: 200px; bottom: 8%;  left: 5%;   animation: floatCircle 17s ease-in-out infinite 2s; }
+
+#contact::before { width: 260px; height: 260px; top: 20%;    right: -40px; animation: floatCircle 20s ease-in-out infinite 4s; }
+#contact::after  { width: 140px; height: 140px; bottom: 15%; left: 8%;    animation: floatCircle 16s ease-in-out infinite 9s; }
 
 /* Floating shapes */
 .floating-shapes {
@@ -1020,6 +1087,73 @@ body:not(.dark-theme) #projects .p-cards::before {
 
 body:not(.dark-theme) #experience .p-cards::before {
     color: rgba(0, 0, 0, 0.04);
+}
+
+/* Project → Research link (right-side stack in project-header) */
+.project-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
+.project-research-link {
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: rgba(79, 142, 247, 0.6);
+    border: 1px solid rgba(79, 142, 247, 0.2);
+    border-radius: 4px;
+    padding: 0.15rem 0.5rem;
+    white-space: nowrap;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+.project-research-link:hover {
+    color: var(--accent);
+    border-color: rgba(79, 142, 247, 0.5);
+}
+
+/* Paper → Project eyebrow row */
+.paper-source-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.paper-source-label {
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.28);
+}
+
+body:not(.dark-theme) .paper-source-label {
+    color: rgba(0, 0, 0, 0.32);
+}
+
+.paper-source-link {
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: rgba(79, 142, 247, 0.7);
+    border: 1px solid rgba(79, 142, 247, 0.22);
+    border-radius: 4px;
+    padding: 0.15rem 0.5rem;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+.paper-source-link:hover {
+    color: var(--accent);
+    border-color: rgba(79, 142, 247, 0.5);
 }
 
 /* =========================================

@@ -24,11 +24,11 @@
       property="og:description"
       content="Prototype Engineer for early-stage startups. I build 0-to-1 MVPs using Python and ML, ensuring robust documentation and a smooth handover."
     />
-    <meta property="og:url" content="https://shailpatel.github.io/" />
+    <meta property="og:url" content="https://shailkpatel.github.io/" />
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
-      content="https://shailpatel.github.io/assets/images/picofme.png"
+      content="https://shailkpatel.github.io/assets/images/profile-pic.png"
     />
     <meta property="og:image:alt" content="Photo of Shail K Patel" />
     <meta property="og:image:width" content="1200" />
@@ -46,7 +46,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://shailpatel.github.io/assets/images/picofme.png"
+      content="https://shailkpatel.github.io/assets/images/profile-pic.png"
     />
     <meta name="twitter:image:alt" content="Photo of Shail K Patel" />
 
@@ -70,7 +70,7 @@
     />
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=20261003" />
 
 <!-- Favicon + Performance Preload -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon_io/apple-touch-icon.png">
@@ -93,7 +93,7 @@
           <!-- <div id="navbar-brand" class="text-2xl font-bold text-black hover:scale-105 transition-transform duration-300 cursor-pointer">
             Shail K Patel
           </div> -->
-<div class="flex-1 justify-center hidden md:flex space-x-8">
+<div class="flex-1 justify-center hidden lg:flex space-x-8">
             <a href="#hero" class="nav-link active" data-section="hero">Home</a>
             <a href="#experience" class="nav-link" data-section="experience">Experience</a>
             <a href="#research" class="nav-link" data-section="research">Publications</a>
@@ -102,7 +102,7 @@
             <a href="#skills" class="nav-link" data-section="skills">Skills</a>
             <a href="#contact" class="nav-link" data-section="contact">Contact</a>
           </div>
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-4 ml-auto">
             <!-- Theme Toggle Switch -->
             <div class="theme-toggle-container">
               <input type="checkbox" id="theme-toggle" class="theme-toggle-input">
@@ -114,7 +114,7 @@
               </label>
             </div>
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden" aria-label="Toggle menu">
+            <button id="mobile-menu-btn" class="lg:hidden" aria-label="Toggle menu">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect y="4" width="20" height="1.5" rx="0.75" fill="currentColor"/>
                 <rect y="9.25" width="20" height="1.5" rx="0.75" fill="currentColor"/>
@@ -125,7 +125,7 @@
         </div>
       </div>
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+      <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200">
         <div class="px-6 py-4 space-y-4">
           <a href="#hero" class="block nav-link">Home</a>
           <a href="#experience" class="block nav-link">Experience</a>
@@ -282,7 +282,10 @@
             <li>Tested 50+ classification pipelines for risk detection; best-performing stacking ensemble achieved recall 0.657</li>
             <li>Applied explainability (SHAP) to support model interpretability and trust</li>
           </ul>
-          Paper: <a href="https://doi.org/10.5281/zenodo.19686376" target="_blank" rel="noopener noreferrer" class="doi-link">doi.org/10.5281/zenodo.19686376</a>          
+          <div class="paper-doi">
+            <span class="paper-doi-label">Paper</span>
+            <a href="https://doi.org/10.5281/zenodo.19686376" target="_blank" rel="noopener noreferrer" class="doi-link">doi.org/10.5281/zenodo.19686376</a>
+          </div>
         </div>
 
         <!-- Right half: DOI link + PDF Viewer -->
@@ -404,8 +407,16 @@
     <div class="space-y-8 w-full mt-4 mb-20">
 
       <div id="certificates-container" class="p-cards bg-white dark:bg-gray-900 rounded-lg p-0 h-70vh w-full">
+        <!-- Mobile: Notion's embedded gallery keeps fixed side padding and crushes cards to a
+             sliver on phones, so link out to the full Notion page instead (shown < 768px via CSS) -->
+        <a href="https://shailkpatel.notion.site/29a5ceb0c23a815fb201fc6adc8ea452?v=29a5ceb0c23a815d95e2000c058f9918" target="_blank" rel="noopener noreferrer" class="cert-mobile-card">
+          <span class="cert-mobile-eyebrow">Notion Gallery</span>
+          <span class="cert-mobile-title">View all certificates</span>
+          <span class="cert-mobile-desc">Courses and credentials, with issuer and date. Opens in a new tab.</span>
+          <span class="cert-mobile-cta">Open gallery <span aria-hidden="true">↗</span></span>
+        </a>
         <!-- keep wrapper full width (no fixed heights) -->
-        <div class="relative w-full h-[90vh] md:h-[90vh] max-h-[90vh] w-full">
+        <div class="cert-embed relative w-full h-[90vh] md:h-[90vh] max-h-[90vh] w-full">
           <iframe 
 
             src="https://shailkpatel.notion.site/ebd//29a5ceb0c23a815fb201fc6adc8ea452?v=29a5ceb0c23a815d95e2000c058f9918" 
@@ -564,6 +575,6 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=20261003"></script>
   </body>
 </html>

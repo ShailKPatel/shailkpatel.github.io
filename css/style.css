@@ -233,8 +233,9 @@ body:not(.dark-theme) #mobile-menu {
     background: rgba(250, 250, 250, 0.97);
 }
 
-/* Hamburger button — only styled at mobile; let Tailwind md:hidden control visibility */
-@media (max-width: 767px) {
+/* Hamburger button — shown below lg (the 7 desktop links don't fit until ~950px);
+   Tailwind lg:hidden controls visibility */
+@media (max-width: 1023px) {
     #mobile-menu-btn {
         display: flex;
         align-items: center;
@@ -868,14 +869,40 @@ body:not(.dark-theme) .paper-title { color: #0f0f0f !important; }
 /* Publications grid layout */
 .publications-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* minmax(0, …) stops long unbreakable content (DOI link) from widening the column past the card */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 3.5rem;
     padding: 0.5rem 1rem 1.5rem;
     align-items: start;
 }
 
 @media (max-width: 768px) {
-    .publications-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .publications-grid { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+}
+
+/* "Paper" eyebrow + DOI link */
+.paper-doi {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-top: 1.5rem;
+}
+
+.paper-doi-label {
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.28);
+}
+
+body:not(.dark-theme) .paper-doi-label {
+    color: rgba(0, 0, 0, 0.32);
+}
+
+.paper-doi .doi-link {
+    margin-top: 0;
 }
 
 /* DOI link — monospace + accent */
@@ -888,6 +915,8 @@ body:not(.dark-theme) .paper-title { color: #0f0f0f !important; }
     transition: opacity var(--transition);
     display: inline-block;
     margin-top: 1.25rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
 }
 
 .doi-link:hover { opacity: 0.65; }
@@ -1176,6 +1205,7 @@ body:not(.dark-theme) .paper-source-label {
     gap: 0.75rem;
     cursor: pointer;
     user-select: none;
+    width: 100%;
     max-width: 420px;
 }
 
@@ -1261,6 +1291,72 @@ body:not(.dark-theme) .pdf-canvas { border-color: rgba(0, 0, 0, 0.1); }
     width: 100% !important;
     height: 100% !important;
     border: none !important;
+}
+
+/* Link card that replaces the embed on phones (enabled in the mobile layer below) */
+.cert-mobile-card {
+    display: none;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.75rem 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-top: 2px solid rgba(255, 255, 255, 0.18);
+    background: #141414;
+    box-shadow: var(--shadow-md);
+    text-decoration: none !important;
+    transition: border-color var(--transition);
+}
+
+.cert-mobile-card:active {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body:not(.dark-theme) .cert-mobile-card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.07);
+    border-top-color: rgba(0, 0, 0, 0.12);
+}
+
+.cert-mobile-eyebrow {
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.28);
+}
+
+body:not(.dark-theme) .cert-mobile-eyebrow { color: rgba(0, 0, 0, 0.32); }
+
+.cert-mobile-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #ececec;
+}
+
+body:not(.dark-theme) .cert-mobile-title { color: #0f0f0f; }
+
+.cert-mobile-desc {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #888;
+}
+
+body:not(.dark-theme) .cert-mobile-desc { color: #555; }
+
+.cert-mobile-cta {
+    align-self: flex-start;
+    margin-top: 0.6rem;
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    border: 1px solid rgba(79, 142, 247, 0.35);
+    border-radius: 4px;
+    padding: 0.45rem 0.85rem;
 }
 
 #certificates.py-6 {
@@ -1703,4 +1799,307 @@ body:not(.dark-theme) section#contact {
         linear-gradient(rgba(0, 0, 0, 0.022) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 0, 0, 0.022) 1px, transparent 1px);
     background-size: auto, 72px 72px, 72px 72px;
+}
+
+/* Collapsed menu (below lg) — roomier tap targets */
+@media (max-width: 1023px) {
+    #mobile-menu .space-y-4 {
+        padding-top: 0.75rem;
+        padding-bottom: 1rem;
+    }
+
+    #mobile-menu .nav-link {
+        padding: 0.6rem 0;
+        font-size: 0.85rem;
+    }
+
+    #mobile-menu .space-y-4 > * + * {
+        margin-top: 0.25rem;
+    }
+}
+
+/* =========================================
+   MOBILE LAYOUT (< 768px)
+   Kept last so it overrides the desktop-first rules above.
+   ========================================= */
+@media (max-width: 767px) {
+
+    /* ── Sections: drop full-viewport height and trim the stacked gaps ── */
+    section,
+    section:not(#hero) {
+        min-height: auto;
+    }
+
+    #hero {
+        min-height: 100svh;
+    }
+
+    /* ── No top bar on phones: page is scrolled manually, theme is fixed to dark ── */
+    nav {
+        display: none !important;
+    }
+
+    #hero {
+        padding-top: 2rem;
+    }
+
+    section.py-6 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    section:not(#hero) > div.mb-20,
+    #certificates .mb-20 {
+        margin-bottom: 0 !important;
+    }
+
+    section .text-center.mb-16 {
+        margin-bottom: 2.75rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.85rem, 9vw, 2.2rem);
+    }
+
+    /* Background circles are 300px+ — scale them down so they read as texture */
+    section:not(#hero)::before,
+    section:not(#hero)::after {
+        transform: scale(0.6);
+        animation: none;
+    }
+
+    /* ── Cards ── */
+    .p-cards.p-6,
+    .p-cards.p-6.md\:p-8 {
+        padding: 1.5rem 1.25rem !important;
+    }
+
+    /* Big corner numbers collide with wrapped titles on narrow screens:
+       turn them into a small inline eyebrow above the title instead */
+    #experience .p-cards::before,
+    #projects .p-cards::before,
+    .skill-column::before {
+        position: static;
+        display: block;
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        color: rgba(79, 142, 247, 0.75);
+        margin-bottom: 0.6rem;
+    }
+
+    body:not(.dark-theme) #experience .p-cards::before,
+    body:not(.dark-theme) #projects .p-cards::before,
+    body:not(.dark-theme) .skill-column::before {
+        color: rgba(37, 99, 235, 0.8);
+    }
+
+    /* ── Experience ── */
+    #experience .p-cards .mb-6 {
+        margin-bottom: 1.25rem;
+    }
+
+    #experience .p-cards .gap-4 {
+        gap: 0.75rem;
+    }
+
+    .experience-title {
+        font-size: 1.4rem !important;
+    }
+
+    /* text-xl's 1.75rem line-height leaves big gaps when the small caps role wraps */
+    .role-title {
+        line-height: 1.6 !important;
+    }
+
+    /* ── Projects ── */
+    .project-title.pr-28 {
+        padding-right: 0 !important;
+    }
+
+    .project-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .project-header-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem 0.9rem;
+    }
+
+    .project-url {
+        margin-top: 0;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        align-self: auto;
+    }
+
+    .project-tech {
+        margin-top: 0.85rem;
+    }
+
+    .project-features li {
+        font-size: 0.88rem;
+        margin-bottom: 0.7rem;
+    }
+
+    /* ── Publications ── */
+    .paper-source-row {
+        flex-wrap: wrap;
+        gap: 0.5rem 0.75rem;
+    }
+
+    .paper-source-label,
+    .paper-source-link {
+        white-space: nowrap;
+    }
+
+    .paper-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 0 !important;
+    }
+
+    #research .space-y-8 {
+        padding-top: 1.5rem;
+        margin-top: 1.25rem !important;
+    }
+
+    /* Grid's own side padding double-indented content relative to the title */
+    .publications-grid {
+        padding: 0;
+        gap: 2rem;
+    }
+
+    .pdf-viewer-container {
+        max-width: 340px;
+        margin: 0 auto;
+        /* room for the stacked-paper shadows that sit 12–15px right/below */
+        padding-right: 12px;
+        padding-bottom: 6px;
+    }
+
+    /* ── Certificates: swap the Notion embed for a link card ── */
+    #certificates-wrapper > div {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    #certificates .text-center.mb-16 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #certificates-container .cert-embed {
+        display: none;
+    }
+
+    .cert-mobile-card {
+        display: flex;
+    }
+
+    #certificates.py-6 {
+        padding-bottom: 2rem !important;
+    }
+
+    /* ── Skills: one gutter only, so chips line up with the title ── */
+    .skills-grid-container {
+        padding: 0;
+    }
+
+    .skills-grid {
+        gap: 0.5rem;
+    }
+
+    .skill-column {
+        padding: 1.5rem 0 1.75rem;
+    }
+
+    .skills-list {
+        gap: 0.5rem;
+    }
+
+    #skills .skill-item {
+        padding: 0.4rem 0.85rem !important;
+        font-size: 0.82rem !important;
+    }
+
+    /* ── Contact ── */
+    .contact-layout {
+        gap: 2.25rem;
+        padding-top: 0;
+    }
+
+    #contact .section-title {
+        font-size: clamp(2.1rem, 10vw, 2.6rem) !important;
+    }
+
+    .contact-link-row {
+        padding: 1.15rem 0;
+    }
+
+    .contact-link-desc {
+        overflow-wrap: anywhere;
+    }
+
+    /* #contact.py-6 outranks section.py-6 above, so restate its padding here */
+    #contact.py-6 {
+        padding-top: 4.5rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    /* ── Footer ── */
+    footer {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    footer .max-w-7xl {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    footer p:first-child {
+        font-size: 0.8rem;
+        line-height: 1.6;
+    }
+
+    footer p.text-sm {
+        font-size: 0.75rem;
+        margin-top: 0.35rem;
+    }
+}
+
+/* Very small phones (≤ 360px): tighten the outer gutter */
+@media (max-width: 360px) {
+    section .px-6 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    #research .mx-auto {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .p-cards.p-6,
+    .p-cards.p-6.md\:p-8 {
+        padding: 1.25rem 1rem !important;
+    }
+
+    .hero-title .name-first,
+    .hero-title .name-last {
+        font-size: 3.25rem;
+    }
+}
+
+/* Touch devices: no hover lift, and keep link arrows visible (no hover to reveal them) */
+@media (hover: none) {
+    .p-cards:hover {
+        transform: none;
+    }
+
+    body.dark-theme .contact-link-arrow { color: #666; }
+    body:not(.dark-theme) .contact-link-arrow { color: #999; }
 }

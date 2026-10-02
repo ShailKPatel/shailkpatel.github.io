@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     /* ── Theme Toggle ── */
+    // Phones have no top bar (hidden in CSS), so no toggle: always dark there
+    const mobileQuery = window.matchMedia('(max-width: 767px)');
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         const savedTheme = localStorage.getItem('theme') || 'dark';
-        if (savedTheme === 'dark') {
+        if (savedTheme === 'dark' || mobileQuery.matches) {
             document.body.classList.add('dark-theme');
             themeToggle.checked = true;
         } else {
@@ -20,6 +22,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.body.classList.remove('dark-theme');
                 localStorage.setItem('theme', 'light');
             }
+        });
+
+        // Resizing down to phone width forces dark; back up restores the saved choice
+        mobileQuery.addEventListener('change', function (e) {
+            const dark = e.matches || localStorage.getItem('theme') !== 'light';
+            document.body.classList.toggle('dark-theme', dark);
+            themeToggle.checked = dark;
         });
     }
 

@@ -967,22 +967,6 @@ body:not(.dark-theme) .project-title { color: #0f0f0f !important; }
     }
 }
 
-/* Project URL — monospace + accent */
-.project-url {
-    font-family: 'DM Mono', 'Courier New', monospace;
-    font-size: 0.7rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    color: var(--accent) !important;
-    transition: opacity var(--transition);
-    white-space: nowrap;
-    align-self: flex-start;
-    margin-top: 0.5rem;
-}
-
-.project-url:hover { opacity: 0.65; }
-
 /* Tech tags — subtle pill badges */
 .project-tech {
     display: flex;
@@ -1128,13 +1112,12 @@ body:not(.dark-theme) #experience .p-cards::before {
     color: rgba(0, 0, 0, 0.04);
 }
 
-/* Project → Research link (right-side stack in project-header) */
-.project-header-right {
+/* Project link buttons (Live / Code / Paper row under the title) */
+.project-links {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.35rem;
-    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-width: 100%;
 }
 
 .project-research-link {
@@ -1920,20 +1903,6 @@ body:not(.dark-theme) section#contact {
     .project-header {
         flex-direction: column;
         gap: 0.5rem;
-    }
-
-    .project-header-right {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.5rem 0.9rem;
-    }
-
-    .project-url {
-        margin-top: 0;
-        white-space: normal;
-        overflow-wrap: anywhere;
-        align-self: auto;
     }
 
     .project-tech {

@@ -590,5 +590,57 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="js/main.js?v=20261003"></script>
+    <script>
+      (function () {
+        try {
+          var endpoint = "https://site-api-dun.vercel.app/api/v";
+          var params = new URLSearchParams(location.search);
+          var r = params.get("r");
+          var sent = false;
+          var timer = null;
+
+          function send() {
+            if (sent) return;
+            sent = true;
+            document.removeEventListener("visibilitychange", onVisibility);
+            try {
+              var body = JSON.stringify({ r: r, p: location.pathname });
+              var ok = false;
+              if (navigator.sendBeacon) {
+                ok = navigator.sendBeacon(endpoint, new Blob([body], { type: "text/plain" }));
+              }
+              if (!ok && window.fetch) {
+                fetch(endpoint, {
+                  method: "POST",
+                  mode: "no-cors",
+                  keepalive: true,
+                  headers: { "Content-Type": "text/plain" },
+                  body: body
+                }).catch(function () {});
+              }
+            } catch (e) {}
+            try {
+              if (params.has("r") && history.replaceState) {
+                params.delete("r");
+                var qs = params.toString();
+                history.replaceState(history.state, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
+              }
+            } catch (e) {}
+          }
+
+          function onVisibility() {
+            if (document.visibilityState === "visible") {
+              if (!timer) timer = setTimeout(send, 2000);
+            } else if (timer) {
+              clearTimeout(timer);
+              timer = null;
+            }
+          }
+
+          document.addEventListener("visibilitychange", onVisibility);
+          onVisibility();
+        } catch (e) {}
+      })();
+    </script>
   </body>
 </html>

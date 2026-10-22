@@ -596,49 +596,46 @@
           var endpoint = "https://site-api-dun.vercel.app/api/v";
           var params = new URLSearchParams(location.search);
           var r = params.get("r");
-          var sent = false;
-          var timer = null;
+          var p = location.pathname;
+          var url = endpoint + "?p=" + encodeURIComponent(p) + (r ? "&r=" + encodeURIComponent(r) : "") + "&_=" + Date.now();
 
-          function send() {
-            if (sent) return;
-            sent = true;
-            document.removeEventListener("visibilitychange", onVisibility);
+          function viaBeacon() {
             try {
-              var body = JSON.stringify({ r: r, p: location.pathname });
-              var ok = false;
               if (navigator.sendBeacon) {
-                ok = navigator.sendBeacon(endpoint, new Blob([body], { type: "text/plain" }));
-              }
-              if (!ok && window.fetch) {
-                fetch(endpoint, {
-                  method: "POST",
-                  mode: "no-cors",
-                  keepalive: true,
-                  headers: { "Content-Type": "text/plain" },
-                  body: body
-                }).catch(function () {});
-              }
-            } catch (e) {}
-            try {
-              if (params.has("r") && history.replaceState) {
-                params.delete("r");
-                var qs = params.toString();
-                history.replaceState(history.state, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
+                navigator.sendBeacon(endpoint, new Blob([JSON.stringify({ r: r, p: p })], { type: "text/plain" }));
               }
             } catch (e) {}
           }
 
-          function onVisibility() {
-            if (document.visibilityState === "visible") {
-              if (!timer) timer = setTimeout(send, 2000);
-            } else if (timer) {
-              clearTimeout(timer);
-              timer = null;
+          function viaImage() {
+            try {
+              var img = new Image();
+              img.onerror = viaBeacon;
+              img.src = url;
+            } catch (e) {
+              viaBeacon();
             }
           }
 
-          document.addEventListener("visibilitychange", onVisibility);
-          onVisibility();
+          try {
+            if (window.fetch) {
+              fetch(url, { mode: "cors", credentials: "omit", cache: "no-store", keepalive: true }).catch(function () {
+                viaImage();
+              });
+            } else {
+              viaImage();
+            }
+          } catch (e) {
+            viaImage();
+          }
+
+          try {
+            if (params.has("r") && history.replaceState) {
+              params.delete("r");
+              var qs = params.toString();
+              history.replaceState(history.state, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
+            }
+          } catch (e) {}
         } catch (e) {}
       })();
     </script>

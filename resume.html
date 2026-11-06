@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shail K Patel | Resume</title>
+    <meta name="description" content="Resume of Shail K Patel, AI Engineer." />
+    <meta name="author" content="Shail K Patel" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <link rel="canonical" href="https://shailkpatel.github.io/resume" />
+    <meta property="og:title" content="Shail K Patel | Resume" />
+    <meta property="og:description" content="Resume of Shail K Patel, AI Engineer." />
+    <meta property="og:url" content="https://shailkpatel.github.io/resume" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:image" content="https://shailkpatel.github.io/assets/images/profile-pic.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon_io/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon_io/apple-touch-icon.png" />
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --bar: rgba(10, 10, 10, 0.86);
+        --line: rgba(255, 255, 255, 0.1);
+        --text: #ececec;
+        --muted: #888;
+        color-scheme: dark;
+      }
+      :root[data-theme="light"] {
+        --bg: #f4f4f4;
+        --bar: rgba(244, 244, 244, 0.86);
+        --line: rgba(0, 0, 0, 0.1);
+        --text: #0f0f0f;
+        --muted: #606060;
+        color-scheme: light;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 15px/1.5 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      a { color: inherit; text-decoration: none; }
+      .bar {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 16px;
+        background: var(--bar);
+        border-bottom: 1px solid var(--line);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+      }
+      .name { flex: 1; min-width: 0; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .link { color: var(--muted); font-size: 14px; }
+      .link:hover { color: var(--text); }
+      .download {
+        flex: none;
+        padding: 7px 16px;
+        border: 1px solid var(--text);
+        border-radius: 100px;
+        background: var(--text);
+        color: var(--bg);
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .download:hover { opacity: 0.85; }
+      main { max-width: 900px; margin: 0 auto; padding: 24px 16px 48px; }
+      .page { position: relative; margin-bottom: 24px; background: #fff; box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35); }
+      .page canvas { display: block; width: 100%; height: auto; }
+      .page a { position: absolute; }
+      .note { margin: 48px 0; color: var(--muted); text-align: center; }
+      .note a { color: var(--text); text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <header class="bar">
+      <a class="name" href="/">Shail K Patel</a>
+      <a class="link" href="/">Portfolio</a>
+      <a class="download" href="/assets/pdf/Shail%20Resume.pdf" download="Shail_K_Patel_Resume.pdf">Download PDF</a>
+    </header>
+    <main id="pages">
+      <p class="note" id="note">Loading resume…</p>
+      <noscript><p class="note"><a href="/assets/pdf/Shail%20Resume.pdf">Open the resume (PDF)</a></p></noscript>
+    </main>
+
+    <script>
+      // Same saved choice as the portfolio's theme toggle.
+      try {
+        if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light";
+      } catch (e) {}
+    </script>
+
+    <!-- Resume views: the same tracker as the portfolio's, on its own listener (/api/r). -->
+    <script>
+      (function () {
+        try {
+          var endpoint = "https://site-api-dun.vercel.app/api/r";
+          var params = new URLSearchParams(location.search);
+          var r = params.get("r");
+          var p = location.pathname;
+          var url = endpoint + "?p=" + encodeURIComponent(p) + (r ? "&r=" + encodeURIComponent(r) : "") + "&_=" + Date.now();
+
+          function viaBeacon() {
+            try {
+              if (navigator.sendBeacon) {
+                navigator.sendBeacon(endpoint, new Blob([JSON.stringify({ r: r, p: p })], { type: "text/plain" }));
+              }
+            } catch (e) {}
+          }
+
+          function viaImage() {
+            try {
+              var img = new Image();
+              img.onerror = viaBeacon;
+              img.src = url;
+            } catch (e) {
+              viaBeacon();
+            }
+          }
+
+          try {
+            if (window.fetch) {
+              fetch(url, { mode: "cors", credentials: "omit", cache: "no-store", keepalive: true }).catch(function () {
+                viaImage();
+              });
+            } else {
+              viaImage();
+            }
+          } catch (e) {
+            viaImage();
+          }
+
+          try {
+            if (params.has("r") && history.replaceState) {
+              params.delete("r");
+              var qs = params.toString();
+              history.replaceState(history.state, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
+            }
+          } catch (e) {}
+        } catch (e) {}
+      })();
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+      // Drawn with pdf.js, not the browser's own viewer: phones often download a PDF instead of
+      // showing it, and this keeps the address bar on /resume.
+      (function () {
+        var PDF = "/assets/pdf/Shail%20Resume.pdf";
+        var SCALE = 3; // sharp on phones and at full width
+        var pages = document.getElementById("pages");
+        var note = document.getElementById("note");
+
+        function failed() {
+          note.innerHTML = 'Could not show the resume here. <a href="' + PDF + '">Open the PDF</a>';
+        }
+
+        // The PDF's own links, laid over the page in percentages so they follow its size.
+        function addLinks(box, page, viewport) {
+          return page.getAnnotations().then(function (annotations) {
+            annotations.forEach(function (a) {
+              if (a.subtype !== "Link" || !a.url) return;
+              var rect = viewport.convertToViewportRectangle(a.rect);
+              var left = Math.min(rect[0], rect[2]);
+              var top = Math.min(rect[1], rect[3]);
+              var link = document.createElement("a");
+              link.href = a.url;
+              link.target = "_blank";
+              link.rel = "noopener";
+              link.style.left = (left / viewport.width) * 100 + "%";
+              link.style.top = (top / viewport.height) * 100 + "%";
+              link.style.width = (Math.abs(rect[2] - rect[0]) / viewport.width) * 100 + "%";
+              link.style.height = (Math.abs(rect[3] - rect[1]) / viewport.height) * 100 + "%";
+              box.appendChild(link);
+            });
+          });
+        }
+
+        function draw(pdf, number) {
+          return pdf.getPage(number).then(function (page) {
+            var viewport = page.getViewport({ scale: SCALE });
+            var box = document.createElement("div");
+            box.className = "page";
+            var canvas = document.createElement("canvas");
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            canvas.setAttribute("role", "img");
+            canvas.setAttribute("aria-label", "Resume of Shail K Patel, page " + number);
+            box.appendChild(canvas);
+            pages.appendChild(box);
+            return page
+              .render({ canvasContext: canvas.getContext("2d"), viewport: viewport })
+              .promise.then(function () {
+                return addLinks(box, page, viewport);
+              });
+          });
+        }
+
+        if (typeof pdfjsLib === "undefined") return failed();
+        pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+        pdfjsLib
+          .getDocument(PDF)
+          .promise.then(function (pdf) {
+            var chain = Promise.resolve();
+            for (var i = 1; i <= pdf.numPages; i++) {
+              chain = chain.then(draw.bind(null, pdf, i));
+            }
+            return chain;
+          })
+          .then(function () {
+            note.remove();
+          })
+          .catch(failed);
+      })();
+    </script>
+  </body>
+</html>
